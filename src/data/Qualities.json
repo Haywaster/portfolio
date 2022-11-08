@@ -1,0 +1,22 @@
+[
+    {
+        "picture": "speedometer",
+        "header": "Fast",
+        "descr": "Fast load times and lag free interaction, my highest priority."
+    },
+    {
+        "picture": "cellphone-link",
+        "header": "Responsive",
+        "descr": "My layouts will work on any device, big or small."
+    },
+    {
+        "picture": "lightbulb-outline",
+        "header": "Intuitive",
+        "descr": "Strong preference for easy to use, intuitive UX/UI."
+    },
+    {
+        "picture": "rocket-launch",
+        "header": "Dynamic",
+        "descr": "Websites don't have to be static, I love making pages come to life."
+    }
+]

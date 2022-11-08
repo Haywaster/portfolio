@@ -1,0 +1,29 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section {
+  position: relative;
+  line-height: 18pt;
+}
+
+section:nth-of-type(1) {
+  color: #fff;
+  height: calc(100vh + 53px);
+  padding: 0px;
+}

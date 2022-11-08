@@ -1,0 +1,159 @@
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.row-gt-sm {
+    flex-direction: row;
+}
+
+.bullet-wrap {
+    justify-content: flex-start;
+    height: 230px;
+    padding: 0 10px;
+}
+
+.hex-wrap {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+}
+
+.hexagon {
+    background-color: #04c2c9;
+    display: inline-block;
+    height: 100%;
+    width: calc(100% * 0.57735);
+}
+
+.hexagon:before {
+    background-color: inherit;
+    content: "";
+    height: inherit;
+    position: absolute;
+    right: calc((100% / 2) - ((100% * 0.57735) / 2));
+    top: 0;
+    transform: rotateZ(60deg);
+    width: inherit;
+}
+
+.hexagon:after {
+    background-color: inherit;
+    content: "";
+    height: inherit;
+    position: absolute;
+    right: calc((100% / 2) - ((100% * 0.57735) / 2));
+    top: 0;
+    transform: rotateZ(-60deg);
+    width: inherit;
+}
+
+.hexagon>svg {
+    font-size: 40pt;
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 1;
+}
+
+.label {
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+.label-wrap .label {
+    margin: 20px 0 10px 0;
+}
+
+.label-wrap>div {
+    padding: 0 15px;
+}
+
+.skills-wrapper {
+    margin: 50px 0 0 0;
+}
+
+.skills-wrapper {
+    align-items: flex-start;
+    width: 100%;
+}
+
+.skills-wrapper .me {
+    height: 250px;
+}
+
+.skills-wrapper>.flex:first-child {
+    padding: 0 50px 0 50px;
+}
+
+.flex-50-gt-sm {
+    box-sizing: border-box;
+    -webkit-flex: 1 1 50%;
+    flex: 1 1 50%;
+    max-height: 100%;
+    max-width: 50%;
+}
+
+.skills-wrapper .label {
+    margin: 20px 0 15px 0;
+}
+
+.bars-wrap {
+    margin: 0;
+    max-width: 90%;
+    width: calc(100% - 15px);
+}
+
+section .flex-50-gt-sm {
+    display: block;
+}
+
+.bar {
+    max-width: 90%;
+    font-size: 11pt;
+    height: 28px;
+    margin: 0 0 15px 0;
+}
+
+.bar {
+    align-items: flex-end;
+    background-color: #eee;
+    color: #666;
+    position: relative;
+}
+
+.bar.fill {
+    left: 0;
+    position: absolute;
+    top: 0;
+    background-color: #00a1a7;
+    opacity: 1;
+    padding: 0;
+}
+
+.bar span {
+    padding: 0 15px 0 0;
+    z-index: 1;
+    display: initial;
+}
+
+.bar .tag {
+    font-weight: 600;
+    width: 110px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    background-color: #04c2c9;
+    color: #fff;
+    height: 100%;
+}
+
+.highlight {
+    color: #009ada;
+    cursor: pointer;
+}

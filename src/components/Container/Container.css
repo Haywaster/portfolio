@@ -1,0 +1,25 @@
+/* section {
+    line-height: 18pt;
+    padding: 100px 0 130px 0;
+    color: #616161;
+} */
+
+.container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 100px 0 130px 0;
+}
+
+.header {
+    font-weight: 700;
+    color: #444649;
+    font-size: 30pt;
+}
+
+.header-bar {
+    background: #444649;
+    height: 4px;
+    margin: 25px 0 75px 0;
+    width: 70px;
+}

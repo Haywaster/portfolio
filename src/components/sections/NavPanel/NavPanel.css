@@ -1,0 +1,45 @@
+nav {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: #1b242f;
+    border-bottom: 3px solid #04c2c9;
+    height: 50px;
+    text-align: left;
+    width: 100%;
+    z-index: 99;
+}
+
+nav .link-wrap {
+    max-width: 1200px;
+    top: 53px;
+    background: none;
+    height: initial;
+    overflow: visible;
+    position: initial;
+    text-align: left;
+    width: 100%;
+}
+
+nav .link-wrap li:first-child {
+    padding: 0;
+}
+
+nav .link-wrap li {
+    display: inline;
+    font-size: initial;
+    margin: 0 20px;
+    padding: initial;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.5s;
+}
+
+nav .active {
+    color: #e31b6d;
+}
+
+.fixed {
+    top: 0;
+    position: fixed
+}
