@@ -39,7 +39,20 @@ nav .active {
     color: #e31b6d;
 }
 
+.page-link {
+    text-decoration: none;
+    color: white;
+    border: none;
+}
+
 .fixed {
     top: 0;
+    animation: popDown 0.5s;
     position: fixed
+}
+
+@keyframes popDown {
+    0% {
+        transform: translateY(-100px);
+    }
 }

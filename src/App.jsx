@@ -11,28 +11,26 @@ function App() {
     const [scroll, setScroll] = useState(0);
     const header = useRef(1);
 
-    const handleScroll = () => {
-        setScroll(window.scrollY);
-    };
-
-    AOS.init({
-        once: true
-    });
-
-    // useEffect(() => {
-    //     AOS.init({
-    //         once: true
-    //     });
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // }, [])
+    useEffect(() => {
+        AOS.init({
+            once: true
+        });
+        const handleScroll = () => {
+            setScroll(window.scrollY);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [])
 
     const navFixedClassName = scroll >= header.current.clientHeight ? 'fixed' : null;
     const navClassNames = ['flex desk', navFixedClassName];
 
     return (
-        <div onAnimationEnd={() => console.log(321)} className="App">
-            <section ref={header} id='home' className="flex height-fix">
+        <>
+            <section
+                id='home'
+                ref={header}
+                className="flex height-fix">
                 <Header />
                 <nav className={navClassNames.join(' ')}>
                     <NavPanel />
@@ -44,7 +42,19 @@ function App() {
                     <About />
                 </Container>
             </section>
-        </div>
+
+            <section id='portfolio'>
+                <Container>
+                    <h1>Секция с портфолио разработке</h1>
+                </Container>
+            </section>
+
+            <section id='contact'>
+                <Container>
+                    <h1>Секция с контактами разработке</h1>
+                </Container>
+            </section>
+        </>
     );
 }
 

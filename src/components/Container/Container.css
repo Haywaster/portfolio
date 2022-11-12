@@ -1,13 +1,7 @@
-/* section {
-    line-height: 18pt;
-    padding: 100px 0 130px 0;
-    color: #616161;
-} */
-
-.container {
-    box-sizing: border-box;
-    margin: 0 auto;
+section .container {
     max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
     padding: 100px 0 130px 0;
 }
 

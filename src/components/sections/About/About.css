@@ -76,9 +76,6 @@
 
 .skills-wrapper {
     margin: 50px 0 0 0;
-}
-
-.skills-wrapper {
     align-items: flex-start;
     width: 100%;
 }
@@ -93,8 +90,8 @@
 
 .flex-50-gt-sm {
     box-sizing: border-box;
-    -webkit-flex: 1 1 50%;
-    flex: 1 1 50%;
+    /* -webkit-flex: 1 1 50%;
+    flex: 1 1 50%; */
     max-height: 100%;
     max-width: 50%;
 }
@@ -157,3 +154,8 @@ section .flex-50-gt-sm {
     color: #009ada;
     cursor: pointer;
 }
+
+/* На мобильной разработке пересмотреть эти свойства 
+-webkit-flex: 1 1 50%;
+flex: 1 1 50%;
+width: calc(100% - 15px); */
