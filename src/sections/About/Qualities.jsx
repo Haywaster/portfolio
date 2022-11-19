@@ -1,6 +1,6 @@
 import React from 'react';
 import QualitiesItem from './Qualities-item';
-import QualitiesData from '../../../data/Qualities.json'
+import QualitiesData from '../../data/Qualities.json'
 
 const Qualities = () => {
     const renderQualities = (array) => {

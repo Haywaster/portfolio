@@ -1,59 +1,36 @@
-import { useState, useEffect, useRef } from 'react';
-import Header from './components/sections/Header/Header';
+import { useState, useEffect } from 'react';
 import Container from './components/Container/Container';
-import About from './components/sections/About/About';
-import NavPanel from './components/sections/NavPanel/NavPanel';
+import About from './sections/About/About';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Home from './sections/Home';
 
 function App() {
-    const [scroll, setScroll] = useState(0);
-    const header = useRef(1);
+    const [sections, setSections] = useState([])
+    const [activeSection, setActiveSection] = useState(null)
 
     useEffect(() => {
         AOS.init({
             once: true
         });
-        const handleScroll = () => {
-            setScroll(window.scrollY);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
     }, [])
-
-    const navFixedClassName = scroll >= header.current.clientHeight ? 'fixed' : null;
-    const navClassNames = ['flex desk', navFixedClassName];
 
     return (
         <>
-            <section
-                id='home'
-                ref={header}
-                className="flex height-fix">
-                <Header />
-                <nav className={navClassNames.join(' ')}>
-                    <NavPanel />
-                </nav>
-            </section>
+            <Home activeSection={activeSection} setActiveSection={setActiveSection} sections={sections} setSections={setSections} />
 
-            <section id='about'>
-                <Container>
-                    <About />
-                </Container>
-            </section>
+            <Container sections={sections} setSections={setSections} id={'about'}>
+                <About />
+            </Container>
 
-            <section id='portfolio'>
-                <Container>
-                    <h1>Секция с портфолио разработке</h1>
-                </Container>
-            </section>
+            <Container sections={sections} setSections={setSections} id={'portfolio'}>
+                <h1>Секция с портфолио разработке</h1>
+            </Container>
 
-            <section id='contact'>
-                <Container>
-                    <h1>Секция с контактами разработке</h1>
-                </Container>
-            </section>
+            <Container sections={sections} setSections={setSections} id={'contact'}>
+                <h1>Секция с контактами разработке</h1>
+            </Container>
         </>
     );
 }

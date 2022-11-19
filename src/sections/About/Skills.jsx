@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SkillsItem from './Skills-item';
-import { skills } from '../../../data/Skills';
+import { skills } from '../../data/Skills';
 
 const Skills = () => {
     const [fillMax, setFillMax] = useState(0)
