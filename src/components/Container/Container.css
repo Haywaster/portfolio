@@ -1,6 +1,7 @@
 section .container {
     max-width: 1200px;
     margin: 0 auto;
+    height: 100vh;
     width: 100%;
     padding: 100px 0 130px 0;
 }
@@ -16,4 +17,8 @@ section .container {
     height: 4px;
     margin: 25px 0 75px 0;
     width: 70px;
+}
+
+#portfolio {
+    background-color: rgb(171, 171, 171);
 }

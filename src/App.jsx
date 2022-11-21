@@ -9,6 +9,7 @@ import Home from './sections/Home';
 function App() {
     const [sections, setSections] = useState([])
     const [activeSection, setActiveSection] = useState(null)
+    const [click, setClick] = useState(false)
 
     useEffect(() => {
         AOS.init({
@@ -18,17 +19,17 @@ function App() {
 
     return (
         <>
-            <Home activeSection={activeSection} setActiveSection={setActiveSection} sections={sections} setSections={setSections} />
+            <Home click={click} setClick={setClick} activeSection={activeSection} setActiveSection={setActiveSection} sections={sections} setSections={setSections} />
 
-            <Container sections={sections} setSections={setSections} id={'about'}>
+            <Container setClick={setClick} click={click} activeSection={activeSection} setActiveSection={setActiveSection} sections={sections} setSections={setSections} id={'about'}>
                 <About />
             </Container>
 
-            <Container sections={sections} setSections={setSections} id={'portfolio'}>
+            <Container setClick={setClick} click={click} activeSection={activeSection} setActiveSection={setActiveSection} sections={sections} setSections={setSections} id={'portfolio'}>
                 <h1>Секция с портфолио разработке</h1>
             </Container>
 
-            <Container sections={sections} setSections={setSections} id={'contact'}>
+            <Container setClick={setClick} click={click} activeSection={activeSection} setActiveSection={setActiveSection} sections={sections} setSections={setSections} id={'contact'}>
                 <h1>Секция с контактами разработке</h1>
             </Container>
         </>
