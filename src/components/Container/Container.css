@@ -1,7 +1,6 @@
 section .container {
     max-width: 1200px;
     margin: 0 auto;
-    height: 100vh;
     width: 100%;
     padding: 100px 0 130px 0;
 }

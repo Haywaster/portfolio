@@ -1,18 +1,18 @@
-nav {
-    bottom: 0;
-    left: 0;
+.desk {
     position: absolute;
+    bottom: 0;
     background: #1b242f;
     border-bottom: 3px solid #04c2c9;
     height: 50px;
     text-align: left;
     width: 100%;
     z-index: 99;
+    /* animation-name: popDown; */
 }
 
-nav .link-wrap {
+.link-wrap {
     max-width: 1200px;
-    top: 53px;
+    /* top: 53px; */
     background: none;
     height: initial;
     overflow: visible;
@@ -21,11 +21,11 @@ nav .link-wrap {
     width: 100%;
 }
 
-nav .link-wrap li:first-child {
+.link-wrap li:first-child {
     padding: 0;
 }
 
-nav .link-wrap li {
+.link-wrap li {
     display: inline;
     font-size: initial;
     margin: 0 20px;
@@ -35,8 +35,9 @@ nav .link-wrap li {
     transition: color 0.5s;
 }
 
-nav .active {
+.active {
     color: #e31b6d;
+    /* transition: color 0.5s; */
 }
 
 .page-link {
@@ -45,10 +46,15 @@ nav .active {
     border: none;
 }
 
+.page-link:hover {
+    color: #e31b6d;
+}
+
 .fixed {
+    position: fixed;
+    /* bottom: inherit; */
+    left: 0;
     top: 0;
-    animation: popDown 0.5s;
-    position: fixed
 }
 
 @keyframes popDown {

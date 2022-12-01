@@ -1,11 +1,17 @@
 import './Button.css'
+import { Link } from 'react-scroll'
 
 const Button = ({ filling, param }) => {
     return (
-        <div className='btn'>
+        <Link
+            className='btn'
+            to='portfolio'
+            smooth={true}
+            duration={200}
+        >
             <div className='btn-text'>{filling}</div>
             {param}
-        </div>
+        </Link>
     );
 };
 

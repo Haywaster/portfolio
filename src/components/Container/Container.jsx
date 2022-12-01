@@ -1,27 +1,9 @@
-import { useRef, useEffect, useCallback } from 'react'
-import { useInView } from 'react-intersection-observer';
+import { useRef, useEffect } from 'react'
 
 import './Container.css'
 
-const Container = ({ children, id, sections, setSections, activeSection, setActiveSection, click, setClick }) => {
+const Container = ({ children, id, setSections }) => {
     const myRef = useRef();
-
-    // const { ref: inViewRef } = useInView({
-    //     triggerOnce: false,
-    //     threshold: 0.74,
-    //     skip: click,
-    //     onChange: (inView, entry) => {
-    //         if (inView) {
-    //             setActiveSection(id)
-    //         }
-    //     },
-    // });
-
-    // const setRefs = useCallback((node) => {
-    //     myRef.current = node
-    //     inViewRef(node);
-    // }, [inViewRef])
-
 
     useEffect(() => {
         setSections(prev => [...prev, myRef.current])

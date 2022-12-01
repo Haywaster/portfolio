@@ -1,24 +1,20 @@
 import NavItem from './NavItem';
 import './NavPanel.css'
 
-const NavPanel = ({ sections, activeSection, setActiveSection, setClick }) => {
-    const navClassNames = ['flex desk fixed'];
-
+const NavPanel = ({ sections }) => {
     const renderNavPanel = () => {
         return sections.map(section => {
-            const activeClassName = activeSection === section.id ? 'active' : null;
-            const sectionClassNames = ['page-link', activeClassName];
             return (
-                <NavItem key={section.id} sectionClassNames={sectionClassNames} section={section} activeSection={activeSection} setActiveSection={setActiveSection} setClick={setClick} />
+                <NavItem key={section.id} section={section} />
             )
         })
     }
 
-    const elements = renderNavPanel()
+    const elements = renderNavPanel();
 
     return (
-        <nav className={navClassNames.join(' ')}>
-            <ol className={activeSection ? 'link-wrap active' : 'link-wrap'}>
+        <nav className='flex desk fixed'>
+            <ol className='link-wrap'>
                 {elements}
             </ol>
         </nav>

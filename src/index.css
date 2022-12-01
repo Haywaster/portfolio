@@ -1,8 +1,6 @@
 * {
   margin: 0px;
   padding: 0px;
-  scroll-behavior: smooth;
-
 }
 
 body {
@@ -20,12 +18,14 @@ body {
 }
 
 section {
-  position: relative;
+  /* position: relative; */
   line-height: 18pt;
+  /* height: 100vh; */
+  padding: 100px 0 130px 0;
 }
 
 section:nth-of-type(1) {
   color: #fff;
-  height: calc(100vh + 53px);
-  padding: 0px;
+  height: 100vh;
+  padding: 0;
 }
