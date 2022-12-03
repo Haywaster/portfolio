@@ -17,15 +17,15 @@ body {
   justify-content: center;
 }
 
+/* К секции нельзя устанавливать padding-bottom, иначе сбивается навигация. Также со значениями vh */
+
 section {
-  /* position: relative; */
+  position: relative;
   line-height: 18pt;
-  /* height: 100vh; */
-  padding: 100px 0 130px 0;
 }
 
 section:nth-of-type(1) {
   color: #fff;
-  height: 100vh;
+  height: calc(100vh + 53px);
   padding: 0;
 }

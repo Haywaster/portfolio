@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Container from './components/Container/Container';
 import About from './sections/About/About';
 
@@ -7,8 +7,6 @@ import 'aos/dist/aos.css';
 import Home from './sections/Home';
 
 function App() {
-    const [sections, setSections] = useState([])
-
     useEffect(() => {
         AOS.init({
             once: true
@@ -17,17 +15,21 @@ function App() {
 
     return (
         <>
-            <Home sections={sections} setSections={setSections} />
+            <Home />
+            {/* <section id='home' style={{ "height": "1200px", 'backgroundColor': 'blue' }}>Я ПРОСТО БЛОК</section>
+            <section id='about' style={{ "height": "1200px", 'backgroundColor': 'red' }}>Я ПРОСТО БЛОК</section>
+            <section id='contact' style={{ "height": "1200px", 'backgroundColor': 'yellow' }}>Я ПРОСТО БЛОК</section>
+            <section id='portfolio' style={{ "height": "1200px", 'backgroundColor': 'green' }}>Я ПРОСТО БЛОК</section> */}
 
-            <Container setSections={setSections} id='about'>
+            <Container id='about'>
                 <About />
             </Container>
 
-            <Container setSections={setSections} id='portfolio'>
+            <Container id='portfolio'>
                 <h1>Секция с портфолио разработке</h1>
             </Container>
 
-            <Container setSections={setSections} id='contact'>
+            <Container id='contact'>
                 <h1>Секция с контактами разработке</h1>
             </Container>
         </>

@@ -1,22 +1,32 @@
-import { useEffect, useRef } from 'react';
-import NavPanel from './NavPanel/NavPanel';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Header from './Header/Header';
+import NavPanel from './NavPanel/NavPanel';
 
-const Home = ({ sections, setSections }) => {
-    const myRef = useRef();
+const Home = () => {
+    const [fixPanel, setFixPanel] = useState(false)
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0,
+    });
 
     useEffect(() => {
-        setSections(prev => [...prev, myRef.current])
-    }, [])
+        if (entry && !entry.isIntersecting) {
+            setFixPanel(true)
+        } else {
+            setFixPanel(false)
+        }
+    }, [entry])
 
     return (
         <section
+            ref={ref}
             id='home'
-            ref={myRef}
             className="flex">
             <Header />
-            <NavPanel sections={sections} />
+            <NavPanel fixPanel={fixPanel} />
         </section>
     );
 };

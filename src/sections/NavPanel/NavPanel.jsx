@@ -1,11 +1,14 @@
 import NavItem from './NavItem';
+import sections from '../../data/sections.json'
 import './NavPanel.css'
 
-const NavPanel = ({ sections }) => {
+const NavPanel = ({ fixPanel }) => {
+    const fixedNavPanel = fixPanel ? 'fixed' : null
+    const classNames = ['flex desk', fixedNavPanel]
     const renderNavPanel = () => {
         return sections.map(section => {
             return (
-                <NavItem key={section.id} section={section} />
+                <NavItem key={section.name} section={section} />
             )
         })
     }
@@ -13,10 +16,10 @@ const NavPanel = ({ sections }) => {
     const elements = renderNavPanel();
 
     return (
-        <nav className='flex desk fixed'>
-            <ol className='link-wrap'>
+        <nav className={classNames.join(' ')}>
+            <div className='link-wrap'>
                 {elements}
-            </ol>
+            </div>
         </nav>
     );
 };
