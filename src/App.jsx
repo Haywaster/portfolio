@@ -17,7 +17,7 @@ function App() {
         <>
             <Home />
             {/* <section id='home' style={{ "height": "1200px", 'backgroundColor': 'blue' }}>Я ПРОСТО БЛОК</section>
-            <section id='about' style={{ "height": "1200px", 'backgroundColor': 'red' }}>Я ПРОСТО БЛОК</section>
+            // <section id='about' style={{ "height": "1200px", 'backgroundColor': 'red' }}>Я ПРОСТО БЛОК</section>
             <section id='contact' style={{ "height": "1200px", 'backgroundColor': 'yellow' }}>Я ПРОСТО БЛОК</section>
             <section id='portfolio' style={{ "height": "1200px", 'backgroundColor': 'green' }}>Я ПРОСТО БЛОК</section> */}
 
