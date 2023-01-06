@@ -20,7 +20,7 @@ section .container {
 
 #portfolio {
     height: 1000px;
-    background-color: rgb(171, 171, 171);
+    background-color: #f5f5f5;
 }
 
 #contact {

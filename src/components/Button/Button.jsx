@@ -7,7 +7,7 @@ const Button = ({ filling, param }) => {
             className='btn'
             to='portfolio'
             smooth={true}
-            // offset={-53}
+            offset={-53}
             duration={200}
         >
             <div className='btn-text'>{filling}</div>

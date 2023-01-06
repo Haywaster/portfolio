@@ -1,0 +1,54 @@
+.filter-wrap {
+    position: relative;
+    white-space: nowrap;
+}
+
+.filter {
+    cursor: pointer;
+    font-size: 13pt;
+    font-weight: 600;
+    color: #616161;
+    margin: 0 25px;
+    padding: 0 40px;
+    transition: all 0.5s ease-in-out;
+}
+
+.float-bar {
+    bottom: 0;
+    left: 30px;
+    position: absolute;
+    top: 0;
+    background: #e31b6d;
+    border-radius: 1px;
+    height: 25px;
+    margin: auto 0;
+    overflow: hidden;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+
+.float-bar .row {
+    bottom: 0;
+    left: -30px;
+    position: absolute;
+    top: 0;
+    margin: auto 0;
+    transition: left 0.5s ease-in-out;
+}
+
+.float-bar .row .filter {
+    color: #fff;
+}
+
+/* Gallery */
+
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.mix {
+    height: 300px;
+    width: 390px;
+}

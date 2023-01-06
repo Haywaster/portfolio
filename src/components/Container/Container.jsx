@@ -1,12 +1,12 @@
 import './Container.css'
 
-const Container = ({ children, id }) => {
+const Container = ({ children, id, direction }) => {
     return (
         <>
             <section id={id}>
                 <div className='container flex'>
-                    <div data-aos="fade-right" data-aos-anchor-placement="center-center" data-aos-duration="1000" className="header">{id.toUpperCase()}</div>
-                    <div data-aos="fade-right" data-aos-anchor-placement="center-center" data-aos-delay="500" data-aos-duration="1000" className="header-bar"></div>
+                    <div data-aos={`fade-${direction}`} data-aos-duration="1000" className="header">{id.toUpperCase()}</div>
+                    <div data-aos={`fade-${direction}`} data-aos-duration="1000" className="header-bar"></div>
                     {children}
                 </div>
             </section>

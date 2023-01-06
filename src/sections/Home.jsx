@@ -7,7 +7,7 @@ import NavPanel from './NavPanel/NavPanel';
 
 const Home = () => {
     const [fixPanel, setFixPanel] = useState(false)
-    const { ref, inView, entry } = useInView({
+    const { ref, entry } = useInView({
         /* Optional options */
         threshold: 0,
     });
