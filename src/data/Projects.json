@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Wodpress",
+        "filter": "JavaScript",
+        "img": "1JS.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "Marvel Portal",
+        "filter": "React-JS",
+        "img": "RCT1.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "Uber",
+        "filter": "JavaScript",
+        "img": "4JS.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "Food",
+        "filter": "JavaScript",
+        "img": "2JS.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "Data Groop",
+        "filter": "React-JS",
+        "img": "RCT4.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "RunSmart",
+        "filter": "JavaScript",
+        "img": "3JS.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "Game of Thrones DB",
+        "filter": "React-JS",
+        "img": "RCT2.png",
+        "descr": "1"
+    },
+    {
+        "name": "IrvasWindows",
+        "filter": "JavaScript",
+        "img": "5JS.jpg",
+        "descr": "1"
+    },
+    {
+        "name": "Twitter of Heroes",
+        "filter": "React-JS",
+        "img": "RCT3.png",
+        "descr": "1"
+    }
+]

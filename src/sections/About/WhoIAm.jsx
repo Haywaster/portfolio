@@ -1,4 +1,4 @@
-import me from '../../img/me.png'
+import me from "../../img/me.png"
 
 const WhoIAm = () => {
     return (

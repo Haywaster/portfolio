@@ -6,7 +6,7 @@ const Ticker = ({ activeFilterName, width, left }) => {
     const renderTickerElems = () => {
         const tickerElems = filtersData.map(tickerElem =>
             <TickerElem
-                key={tickerElem.name + 'ticker'}
+                key={tickerElem.name + "ticker"}
                 name={tickerElem.name.toUpperCase()}
                 activeFilterName={activeFilterName}
             />);
@@ -16,8 +16,8 @@ const Ticker = ({ activeFilterName, width, left }) => {
     const elements = renderTickerElems();
 
     return (
-        <div className='float-bar' style={{ 'left': left, 'width': width }}>
-            <div className="flex row" style={{ 'left': -left }}>
+        <div className="float-bar" style={{ "left": left, "width": width }}>
+            <div className="flex row" style={{ "left": -left }}>
                 {elements}
             </div>
         </div>

@@ -1,0 +1,21 @@
+.link {
+    padding: 12px 50px 12px 20px;
+    margin-bottom: 53px;
+}
+
+.arrow {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    transform: translate(0%, -50%);
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #04c2c9;
+    border-color: #04c2c9;
+}
+
+.btn:hover :nth-child(2) {
+    transform: rotate(90deg) translate(-50%);
+}

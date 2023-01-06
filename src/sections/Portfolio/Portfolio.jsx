@@ -16,7 +16,7 @@ const Portfolio = () => {
                 <Filters setWidth={setWidth} setLeft={setLeft} activeFilterName={activeFilterName} setActiveFilterName={setActiveFilterName} />
                 <Ticker left={left} width={width} activeFilterName={activeFilterName} />
             </div>
-            <Gallery />
+            <Gallery activeFilterName={activeFilterName} />
         </>
     );
 };

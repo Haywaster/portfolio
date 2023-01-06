@@ -43,12 +43,78 @@
 /* Gallery */
 
 #gallery {
+    margin: 20px 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
 }
 
 .mix {
+    position: relative;
+}
+
+.card {
     height: 300px;
     width: 390px;
+    background: center center/cover;
+    transition: opacity 0.5s;
+}
+
+.mix .text {
+    color: #1b242f;
+    opacity: 0;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.mix .btn {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 2px solid #e31b6d;
+    font-size: 13pt;
+    margin: 0 auto;
+    padding: 7px 0;
+    width: 170px;
+    color: #1b242f;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+}
+
+.text .bold {
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+.highlight {
+    cursor: default;
+    color: #e31b6d;
+}
+
+.mix:hover .text {
+    cursor: default;
+    opacity: 1;
+    top: 24%;
+}
+
+.mix:hover .card {
+    opacity: 0;
+}
+
+.mix:hover .btn {
+    bottom: 24%;
+    opacity: 1;
+}
+
+.mix .btn:hover {
+    background: #e31b6d;
+    color: #fff;
 }

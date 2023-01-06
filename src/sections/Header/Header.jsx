@@ -1,4 +1,4 @@
-import Button from '../../components/Button/Button';
+import LinkTo from '../../components/LinkTo/LinkTo';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -12,7 +12,7 @@ const Header = () => {
                     <br />
                     I'm a frontend developer.
                 </div>
-                <Button
+                <LinkTo
                     filling={'View my work'}
                     param={
                         <FontAwesomeIcon className='arrow' icon={faArrowRight} />

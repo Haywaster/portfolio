@@ -1,18 +1,11 @@
-import './Button.css'
-import { Link } from 'react-scroll'
+import React from 'react';
+import "./Button.css"
 
-const Button = ({ filling, param }) => {
+const Button = ({ text }) => {
     return (
-        <Link
-            className='btn'
-            to='portfolio'
-            smooth={true}
-            offset={-53}
-            duration={200}
-        >
-            <div className='btn-text'>{filling}</div>
-            {param}
-        </Link>
+        <div className='btn'>
+            {text.toUpperCase()}
+        </div>
     );
 };
 

@@ -27,9 +27,9 @@ function App() {
             </Container>
 
             <Container id='contact' direction='right'>
-                <h1>Секция c контактами разработке</h1>
+                <h1>Секция c контактами в разработке</h1>
                 <br />
-                <h2><a target='_blank' href="https://haywaster.github.io" rel="noreferrer">GITHUB</a></h2>
+                <h2><a target='_blank' href="https://github.com/Haywaster" rel="noreferrer">GITHUB</a></h2>
             </Container>
         </>
     );

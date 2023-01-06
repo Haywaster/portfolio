@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.text {
+section:nth-of-type(1) .text {
     pointer-events: none;
     font-size: 32pt;
     line-height: 36pt;
