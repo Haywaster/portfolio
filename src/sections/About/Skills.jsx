@@ -8,7 +8,10 @@ const Skills = () => {
     const renderSkills = () => {
         return skills.map(skill => {
             return (
-                <SkillsItem key={skill.header} header={skill.header} width={skill.width} fillMax={fillMax} />
+                <SkillsItem
+                    key={skill.header}
+                    fillMax={fillMax}
+                    {...skill} />
             )
         })
     }

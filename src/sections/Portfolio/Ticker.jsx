@@ -2,13 +2,12 @@ import React from 'react';
 import TickerElem from './TickerElem';
 import filtersData from '../../data/Filters.json';
 
-const Ticker = ({ activeFilterName, width, left }) => {
+const Ticker = ({ width, left }) => {
     const renderTickerElems = () => {
         const tickerElems = filtersData.map(tickerElem =>
             <TickerElem
                 key={tickerElem.name + "ticker"}
                 name={tickerElem.name.toUpperCase()}
-                activeFilterName={activeFilterName}
             />);
         return tickerElems;
     };

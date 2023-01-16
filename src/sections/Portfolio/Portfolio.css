@@ -45,6 +45,8 @@
 #gallery {
     margin: 20px 0;
     padding: 0;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }

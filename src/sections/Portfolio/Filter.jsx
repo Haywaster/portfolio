@@ -1,11 +1,12 @@
 import React from 'react';
+import projects from '../../data/Projects.json';
 
-const Filter = ({ name, activeFilterName, setActiveFilterName, setWidth, setLeft }) => {
-    let activeClass = activeFilterName === name ? 'active-filter' : null;
+const Filter = ({ name, setWidth, setLeft, setCards }) => {
+    let activeClass = name ? 'active-filter' : null;
     let clazzNames = ['filter', activeClass];
 
-    const switchFilter = (e) => {
-        setActiveFilterName(name.toUpperCase())
+    const switchFilter = e => {
+        setCards(name === 'ALL' ? projects : projects.filter(project => project.filter.toUpperCase() === name))
         setWidth(e.target.offsetWidth)
         setLeft(e.target.offsetLeft)
     }
