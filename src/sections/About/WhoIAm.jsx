@@ -3,7 +3,7 @@ import me from "../../img/me.png"
 const WhoIAm = () => {
     return (
         <>
-            <div data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-center" className="flex flex-50-gt-sm waypoint animated slide-in-left">
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-center" className="flex flex-50-gt-sm">
                 <img src={me} className="me" alt="I'm" />
                 <div className="label bold">Who's this guy?</div>
                 <div>

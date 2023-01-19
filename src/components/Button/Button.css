@@ -1,9 +1,55 @@
 .btn {
-    position: relative;
-    border: 2px solid #fff;
-    box-sizing: inherit;
+    position: absolute;
     cursor: pointer;
-    display: inline-block;
-    transition: all 500ms ease;
-    font-size: 16pt;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 13pt;
+    margin: 0 auto;
+    padding: 7px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.mix .btn {
+    width: 170px;
+    border: 2px solid #e31b6d;
+    color: #1b242f;
+    opacity: 0;
+}
+
+.mix:hover .btn {
+    bottom: 24%;
+    opacity: 1;
+}
+
+.mix .btn:hover {
+    background: #e31b6d;
+    color: #fff;
+}
+
+.modal-wrap .btn {
+    width: fit-content;
+    margin: 0;
+    padding: 11px 30px;
+    left: 25px;
+    bottom: 20px;
+    background: #e31b6d;
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.modal-wrap .btn:hover {
+    background: #fff;
+    color: #e31b6d;
+}
+
+.btn .mdi {
+    vertical-align: middle;
+}
+
+.btn .mdi-open-in-new {
+    font-size: 11pt;
+    left: -10px;
+    position: relative;
 }

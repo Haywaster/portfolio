@@ -1,7 +1,7 @@
 /* Инфо */
 
 .context {
-    z-index: 100;
+    z-index: 90;
     align-items: center;
     position: absolute;
     top: 50%;

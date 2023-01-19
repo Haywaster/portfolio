@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Project, { MProject } from './Project';
+import { MProject } from './Project';
 
-const Gallery = ({ cards }) => {
+const Gallery = ({ cards, setActiveModal }) => {
     const renderProjects = () => {
         const elements = cards.map(el => (
-            <MProject key={el.name} {...el} />
+            <MProject setActiveModal={setActiveModal} key={el.name} {...el} />
         ))
         return elements
     }

@@ -1,4 +1,11 @@
 .link {
+    position: relative;
+    box-sizing: inherit;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 500ms ease;
+    font-size: 16pt;
+    border: 2px solid #ffffff;
     padding: 12px 50px 12px 20px;
     margin-bottom: 53px;
 }
@@ -11,11 +18,11 @@
     transition: all 0.3s;
 }
 
-.btn:hover {
+.link:hover {
     background-color: #04c2c9;
     border-color: #04c2c9;
 }
 
-.btn:hover :nth-child(2) {
+.link:hover :nth-child(2) {
     transform: rotate(90deg) translate(-50%);
 }

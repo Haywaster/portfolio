@@ -4,7 +4,7 @@ import { Link } from 'react-scroll'
 const LinkTo = ({ filling, param }) => {
     return (
         <Link
-            className='link btn'
+            className='link'
             to='portfolio'
             smooth={true}
             offset={-53}

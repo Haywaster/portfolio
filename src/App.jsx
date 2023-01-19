@@ -1,13 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import projects from './data/Projects.json';
+
 import Container from './components/Container/Container';
 import About from './sections/About/About';
 import Home from './sections/Home';
 import Portfolio from './sections/Portfolio/Portfolio';
+import Mask from './components/Mask/Mask';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+const App = () => {
+    const [activeModal, setActiveModal] = useState(false);
+    const [cards, setCards] = useState(projects);
 
-function App() {
     useEffect(() => {
         AOS.init({
             once: true
@@ -16,6 +21,12 @@ function App() {
 
     return (
         <>
+            <Mask
+                card={cards.find(card => activeModal === card.name)}
+                modal={activeModal}
+                onClose={() => setActiveModal(false)}
+            />
+
             <Home />
 
             <Container id='about' direction='right'>
@@ -23,7 +34,7 @@ function App() {
             </Container>
 
             <Container id='portfolio' direction='left'>
-                <Portfolio />
+                <Portfolio cards={cards} setCards={setCards} setActiveModal={setActiveModal} />
             </Container>
 
             <Container id='contact' direction='right'>

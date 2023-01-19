@@ -1,9 +1,12 @@
 import React from 'react';
+import { Icon } from '@iconify/react';
+
 import "./Button.css"
 
-const Button = ({ text }) => {
+const Button = ({ text, action, content }) => {
     return (
-        <div className='btn'>
+        <div onClick={action} className='btn'>
+            {content && <Icon className={`mdi mdi-${content}`} icon={`mdi:${content}`} />}
             {text.toUpperCase()}
         </div>
     );

@@ -38,7 +38,7 @@ const Skills = () => {
             data-aos="fade-left"
             data-aos-duration="1000"
             data-aos-anchor-placement="top-center"
-            className="flex flex-50-gt-sm waypoint bars-wrap animated slide-in-right">
+            className="flex flex-50-gt-sm bars-wrap">
             {elements}
         </div>
     );

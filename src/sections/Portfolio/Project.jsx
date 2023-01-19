@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import Button from '../../components/Button/Button';
 import { motion } from 'framer-motion';
 
-const Project = forwardRef(({ name, img, descr, filter, activeFilterName }, ref) => {
+const Project = forwardRef(({ name, preview, filter, setActiveModal }, ref) => {
     const switchFilterAnimation = {
         start: { opacity: 0, scale: 0 },
         middle: { opacity: 1, scale: 1 },
@@ -20,12 +20,12 @@ const Project = forwardRef(({ name, img, descr, filter, activeFilterName }, ref)
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
             key={name}
             className='mix' >
-            <div className="card" style={{ backgroundImage: `url(/img/${filter.toLowerCase()}/${img})` }}></div>
+            <div className="card" style={{ backgroundImage: `url(/img/preview/${filter.toLowerCase()}/${preview})` }}></div>
             <div className="text">
                 <div className="bold">{name}</div>
                 <span className="highlight">{filter}</span>
             </div>
-            <Button text="Learn more" />
+            <Button action={() => setActiveModal(name)} text="Learn more" />
         </motion.div>
     );
 });
