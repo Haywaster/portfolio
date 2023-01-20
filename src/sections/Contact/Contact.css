@@ -1,0 +1,10 @@
+#contact svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#contact .highlight {
+    color: #04c2c9;
+    font-weight: 600;
+}

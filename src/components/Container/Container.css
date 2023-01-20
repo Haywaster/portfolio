@@ -14,7 +14,7 @@ section .container {
 .header-bar {
     background: #444649;
     height: 4px;
-    margin: 25px 0 75px 0;
+    margin: 25px 0 100px 0;
     width: 70px;
 }
 
@@ -23,5 +23,17 @@ section .container {
 }
 
 #contact {
-    height: 1000px;
+    padding-top: 75px;
+    background: #252934;
+    color: #fff;
+}
+
+#contact .header {
+    color: #fff;
+}
+
+#contact .header-bar {
+    background: white;
+    margin: 25px 0 40px 0;
+    width: 110px;
 }

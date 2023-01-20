@@ -1,27 +1,16 @@
 [
     {
-        "name": "Wodpress",
-        "filter": "JavaScript",
-        "preview": "1JS.jpg",
-        "descr": "This simple and small site opened my way to the big and interesting world of web programming.",
-        "brief": "My first web project",
-        "url": "https://github.com/Haywaster/wordpress"
-    },
-    {
         "name": "Marvel Portal",
         "filter": "React-JS",
         "preview": "RCT1.jpg",
         "descr": "«Marvel Library» allows you to find the character or book you need with all the details.",
         "brief": "A small library on the Marvel Universe",
-        "url": "https://github.com/Haywaster/marvel"
-    },
-    {
-        "name": "Uber",
-        "filter": "JavaScript",
-        "preview": "4JS.jpg",
-        "descr": "The Uber taxi website allows the client to find out about the company, why it is worth choosing it, and also to get a job as a taxi driver.",
-        "brief": "Training project for the Uber website",
-        "url": "https://github.com/Haywaster/uber"
+        "url": "https://github.com/Haywaster/marvel",
+        "images": [
+            "1.png",
+            "2.jpg",
+            "3.png"
+        ]
     },
     {
         "name": "Food",
@@ -29,23 +18,12 @@
         "preview": "2JS.jpg",
         "descr": "Proper nutrition is necessary for everyone, this website will tell you about it. You can calculate the calorie intake for yourself, as well as order something to eat.",
         "brief": "Healthy nutrition website",
-        "url": "https://github.com/Haywaster/food"
-    },
-    {
-        "name": "Data Groop",
-        "filter": "React-JS",
-        "preview": "RCT4.jpg",
-        "descr": "My personal project that allows students to search for a person with the same variant. This saves time by doing homework together.",
-        "brief": "Search students by option",
-        "url": "https://github.com/Haywaster/5A94"
-    },
-    {
-        "name": "RunSmart",
-        "filter": "JavaScript",
-        "preview": "3JS.jpg",
-        "descr": "On this site you have the opportunity to choose a sports watch for yourself. A large catalog and customer reviews will help you make the right choice.",
-        "brief": "Selection of heart rate monitors",
-        "url": "https://github.com/Haywaster/pulsometr"
+        "url": "https://github.com/Haywaster/food",
+        "images": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg"
+        ]
     },
     {
         "name": "Game of Thrones DB",
@@ -53,15 +31,53 @@
         "preview": "RCT2.png",
         "descr": "Large and mysterious universe of the Game of Thrones. This SPA will help you better deal with characters, books, buildings.",
         "brief": "Game of Thrones Library",
-        "url": "https://github.com/Haywaster/gotDataBase"
+        "url": "https://github.com/Haywaster/gotDataBase",
+        "images": [
+            "1.png",
+            "2.jpg",
+            "3.jpg"
+        ]
     },
     {
-        "name": "Irvas-Windows",
+        "name": "RunSmart",
         "filter": "JavaScript",
-        "preview": "5JS.jpg",
-        "descr": "The Irvas company is engaged in a glazing of balconies and apartments. On her website, you can choose a glazing option for your home and place an order.",
-        "brief": "Window installation website",
-        "url": "https://github.com/Haywaster/windows"
+        "preview": "3JS.jpg",
+        "descr": "On this site you have the opportunity to choose a sports watch for yourself. A large catalog and customer reviews will help you make the right choice.",
+        "brief": "Selection of heart rate monitors",
+        "url": "https://github.com/Haywaster/pulsometr",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.jpg"
+        ]
+    },
+    {
+        "name": "Uber",
+        "filter": "JavaScript",
+        "preview": "4JS.jpg",
+        "descr": "The Uber taxi website allows the client to find out about the company, why it is worth choosing it, and also to get a job as a taxi driver.",
+        "brief": "Training project for the Uber website",
+        "url": "https://github.com/Haywaster/uber",
+        "images": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg"
+        ]
+    },
+    {
+        "name": "Data Groop",
+        "filter": "React-JS",
+        "preview": "RCT4.jpg",
+        "descr": "My personal project that allows students to search for a person with the same variant. This saves time by doing homework together.",
+        "brief": "Search students by option",
+        "url": "https://github.com/Haywaster/5A94",
+        "images": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
+        ]
     },
     {
         "name": "Checkers",
@@ -69,14 +85,51 @@
         "preview": "RCT5.jpg",
         "descr": "This well known game will make you really use your brains.",
         "brief": "Computer variation of classic checkers",
-        "url": "https://github.com/Haywaster/chess"
+        "url": "https://github.com/Haywaster/chess",
+        "images": [
+            "1.png",
+            "2.jpg"
+        ]
+    },
+    {
+        "name": "Irvas-Windows",
+        "filter": "JavaScript",
+        "preview": "5JS.jpg",
+        "descr": "The Irvas company is engaged in a glazing of balconies and apartments. On her website, you can choose a glazing option for your home and place an order.",
+        "brief": "Window installation website",
+        "url": "https://github.com/Haywaster/windows",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
     },
     {
         "name": "TPU Cafe",
         "filter": "React-JS",
-        "preview": "RCT6.jpg",
+        "preview": "RCT6.png",
         "descr": "Students often learn about new places from the Internet. Tomsk Polytechnic University opened its cafe especially for students. On this site, they can get acquainted with the menu, learn about discounts and place an order.",
         "brief": "Cafe website of Tomsk Polytechnic University (course project)",
-        "url": "https://github.com/AleksaSmirnovaTomsk/cafe-tpu"
+        "url": "https://github.com/AleksaSmirnovaTomsk/cafe-tpu",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.jpg",
+            "4.png"
+        ]
+    },
+    {
+        "name": "Wordpress",
+        "filter": "JavaScript",
+        "preview": "1JS.jpg",
+        "descr": "This simple and small site opened my way to the big and interesting world of web programming.",
+        "brief": "My first web project",
+        "url": "https://github.com/Haywaster/wordpress",
+        "images": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg"
+        ]
     }
 ]

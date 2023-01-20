@@ -35,8 +35,7 @@ const Mask = ({ card, modal, onClose }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                    >
+                        transition={{ duration: 0.3 }}>
                         <motion.div
                             ref={ref}
                             className='modal'
@@ -44,7 +43,7 @@ const Mask = ({ card, modal, onClose }) => {
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.7 }}
                             transition={{ duration: 0.3 }}>
-                            <Carousel img={card.img} />
+                            <Carousel {...card} />
                             <div className='info-box'>
                                 <div className="title">{card.name}</div>
                                 <div className="tag">{card.brief.toUpperCase()}</div>

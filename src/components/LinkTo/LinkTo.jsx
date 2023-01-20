@@ -5,7 +5,7 @@ const LinkTo = ({ filling, param }) => {
     return (
         <Link
             className='link'
-            to='portfolio'
+            to='about'
             smooth={true}
             offset={-53}
             duration={200}

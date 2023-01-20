@@ -4,7 +4,6 @@ import './Carousel.css'
 
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { images } from "./image-data.js";
 
 const variants = {
     enter: direction => {
@@ -29,21 +28,23 @@ const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
 };
 
-export const Carousel = () => {
+export const Carousel = ({ name, filter, images }) => {
+    const url = [...images].map(el => `/img/filling/${filter.toLowerCase()}/${name}/${el}`);
     const [[page, direction], setPage] = useState([0, 0]);
-    const imageIndex = wrap(0, images.length, page);
+    const imageIndex = wrap(0, url.length, page);
 
     const paginate = (newDirection) => {
         setPage([page + newDirection, newDirection]);
     };
-
     return (
-        <div className="carousel">
+        <motion.div className="carousel">
             <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                     className="slider-img"
                     key={page}
-                    src={images[imageIndex]}
+                    // src={images[imageIndex]}
+                    /* <img src="/img/filling/javascript/Irvas-Windows/1.png" alt="123" /> */
+                    src={url[imageIndex]}
                     custom={direction}
                     variants={variants}
                     initial="enter"
@@ -66,6 +67,6 @@ export const Carousel = () => {
             </AnimatePresence>
             <Icon onClick={() => paginate(1)} className='next mdi mdi-chevron-right' icon='mdi:chevron-right' />
             <Icon onClick={() => paginate(-1)} className='prev mdi mdi-chevron-left' icon='mdi:chevron-left' />
-        </div>
+        </motion.div>
     );
 };

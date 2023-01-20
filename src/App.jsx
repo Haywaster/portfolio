@@ -8,6 +8,7 @@ import About from './sections/About/About';
 import Home from './sections/Home';
 import Portfolio from './sections/Portfolio/Portfolio';
 import Mask from './components/Mask/Mask';
+import Contact from './sections/Contact/Contact';
 
 const App = () => {
     const [activeModal, setActiveModal] = useState(false);
@@ -21,6 +22,7 @@ const App = () => {
 
     return (
         <>
+
             <Mask
                 card={cards.find(card => activeModal === card.name)}
                 modal={activeModal}
@@ -38,9 +40,7 @@ const App = () => {
             </Container>
 
             <Container id='contact' direction='right'>
-                <h1>Секция c контактами в разработке</h1>
-                <br />
-                <h2><a target='_blank' href="https://github.com/Haywaster" rel="noreferrer">GITHUB</a></h2>
+                <Contact />
             </Container>
         </>
     );
