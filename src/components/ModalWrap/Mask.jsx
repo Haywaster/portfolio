@@ -3,8 +3,6 @@ import Button from '../Button/Button';
 import { Carousel } from '../Carousel/Carousel';
 
 const Mask = ({ card }) => {
-    console.log(card)
-
     return (
         <>
             <Carousel {...card} />

@@ -7,12 +7,16 @@ import Container from './components/Container/Container';
 import About from './sections/About/About';
 import Home from './sections/Home';
 import Portfolio from './sections/Portfolio/Portfolio';
-import Mask from './components/Mask/Mask';
+import Mask from './components/ModalWrap/Mask';
 import Contact from './sections/Contact/Contact';
-import ModalWrap from './components/Mask/ModalWrap';
+import ModalWrap from './components/ModalWrap/ModalWrap';
+import SuccesModal from './components/ModalWrap/SuccesModal';
+import ErrorModal from './components/ModalWrap/ErrorModal';
 
 const App = () => {
     const [activeModal, setActiveModal] = useState(false);
+    const [success, setSucces] = useState(false);
+    const [error, setError] = useState(false);
     const [cards, setCards] = useState(projects);
 
     useEffect(() => {
@@ -21,12 +25,22 @@ const App = () => {
         });
     }, []);
 
+    const setClose = () => {
+        setActiveModal(false)
+        setSucces(false)
+        setError(false)
+    }
+
     return (
         <>
             <ModalWrap
                 modal={activeModal}
-                onClose={() => setActiveModal(false)}>
-                <Mask card={cards.find(card => activeModal === card.name)} />
+                success={success}
+                error={error}
+                onClose={() => setClose()}>
+                {activeModal && <Mask card={cards.find(card => activeModal === card.name)} />}
+                {success && <SuccesModal />}
+                {error && <ErrorModal />}
             </ModalWrap>
 
             <Home />
@@ -40,7 +54,7 @@ const App = () => {
             </Container>
 
             <Container id='contact' direction='right'>
-                <Contact />
+                <Contact setSucces={setSucces} setError={setError} />
             </Container>
         </>
     );

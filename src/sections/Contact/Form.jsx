@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from "@emailjs/browser";
 
-const Form = () => {
+const Form = ({ setSucces, setError }) => {
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -16,28 +16,25 @@ const Form = () => {
             )
             .then(
                 (result) => {
+                    setSucces(true);
                     console.log(result.text);
                 },
                 (error) => {
+                    setError(true);
                     console.log(error.text);
                 }
             );
+
+        e.target.reset();
     };
 
     return (
-        <div>
-            <form ref={form} onSubmit={sendEmail}>
-                <input placeholder="Name" type="text" name="name" required />
-                <input placeholder="Enter email" type="email" name="email" required />
-                <textarea placeholder="Your Message" type="text" name="message"></textarea>
-                <div id="success">
-                    <div>
-                        Your message was sent successfully. Thanks!<span id="close" className="mdi mdi-close"></span>
-                    </div>
-                </div>
-                <input type="submit" className="btn submit" id="submit" value="SUBMIT" />
-            </form>
-        </div>
+        <form ref={form} onSubmit={sendEmail}>
+            <input placeholder="Name" type="text" name="name" required />
+            <input placeholder="Enter email" type="email" name="email" required />
+            <textarea placeholder="Your Message" type="text" name="message"></textarea>
+            <input type="submit" className="btn submit" id="submit" value="SUBMIT" />
+        </form>
     );
 };
 
