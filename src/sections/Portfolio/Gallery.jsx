@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MProject } from './Project';
 
@@ -13,13 +13,12 @@ const Gallery = ({ cards, setActiveModal }) => {
 
     return (
         <motion.div
-            data-aos="fade-up"
             id='gallery'>
-            <AnimatePresence mode='popLayout'>
+            <AnimatePresence initial={false} mode='popLayout'>
                 {elements}
             </AnimatePresence >
         </motion.div >
     );
 };
 
-export default Gallery;
+export default memo(Gallery);

@@ -9,6 +9,7 @@ import Home from './sections/Home';
 import Portfolio from './sections/Portfolio/Portfolio';
 import Mask from './components/Mask/Mask';
 import Contact from './sections/Contact/Contact';
+import ModalWrap from './components/Mask/ModalWrap';
 
 const App = () => {
     const [activeModal, setActiveModal] = useState(false);
@@ -22,12 +23,11 @@ const App = () => {
 
     return (
         <>
-
-            <Mask
-                card={cards.find(card => activeModal === card.name)}
+            <ModalWrap
                 modal={activeModal}
-                onClose={() => setActiveModal(false)}
-            />
+                onClose={() => setActiveModal(false)}>
+                <Mask card={cards.find(card => activeModal === card.name)} />
+            </ModalWrap>
 
             <Home />
 

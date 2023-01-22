@@ -8,3 +8,44 @@
     color: #04c2c9;
     font-weight: 600;
 }
+
+#contact form {
+    display: block;
+    margin: 40px auto 0 auto;
+    min-width: 500px;
+}
+
+#contact input[type=text],
+input[type=email],
+textarea {
+    background: #1e242c;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    display: block;
+    font-size: 12pt;
+    margin-bottom: 3px;
+    outline: none;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+#contact textarea {
+    width: 609px;
+    height: 150px;
+    margin-bottom: 5px;
+    min-height: 150px;
+}
+
+.submit {
+    position: static;
+    width: fit-content;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    float: right;
+    font-size: 12pt;
+    margin: 5px 0 0 0;
+    outline: 0;
+    padding: 10px 30px;
+}
