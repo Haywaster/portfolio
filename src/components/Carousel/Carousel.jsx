@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Icon } from "@iconify/react";
-import './Carousel.css'
-
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
+import { Icon } from "@iconify/react";
+
+import './Carousel.css';
 
 const variants = {
     enter: direction => {
@@ -42,8 +42,6 @@ export const Carousel = ({ name, filter, images }) => {
                 <motion.img
                     className="slider-img"
                     key={page}
-                    // src={images[imageIndex]}
-                    /* <img src="/img/filling/javascript/Irvas-Windows/1.png" alt="123" /> */
                     src={url[imageIndex]}
                     custom={direction}
                     variants={variants}
@@ -61,7 +59,7 @@ export const Carousel = ({ name, filter, images }) => {
                             paginate(1);
                         } else if (swipe > swipeConfidenceThreshold) {
                             paginate(-1);
-                        }
+                        };
                     }}
                 />
             </AnimatePresence>

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+
+import Gallery from './Gallery';
 import Filters from './Filters';
 import Ticker from './Ticker';
-
 import './Portfolio.css'
-import Gallery from './Gallery';
+
 
 const Portfolio = ({ cards, setCards, setActiveModal }) => {
-    const [left, setLeft] = useState('25px');
-    const [width, setWidth] = useState('112px');
+    const [left, setLeft] = useState(0);
+    const [width, setWidth] = useState(0);
 
     return (
         <>

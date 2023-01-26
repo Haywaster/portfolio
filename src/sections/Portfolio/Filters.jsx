@@ -1,6 +1,7 @@
 import React from 'react';
+
+import filtersData from '../../data/Filters.json';
 import Filter from './Filter';
-import filtersData from '../../data/Filters.json'
 
 const Filters = ({ ...props }) => {
     const renderFilters = () => {

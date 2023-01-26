@@ -12,12 +12,16 @@ export const skills = [
         'width': 80
     },
     {
-        'header': 'React + Rexus',
+        'header': 'React + Redux',
         'width': 80
     },
     {
         'header': 'SASS, SCSS',
         'width': 70
+    },
+    {
+        'header': 'Tailwind CSS',
+        'width': 60
     },
     {
         'header': 'GIT',

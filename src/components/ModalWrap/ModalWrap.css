@@ -69,7 +69,6 @@
 
 .modal-body {
     overflow: hidden;
-    padding-right: 15px;
 }
 
 .notification {
@@ -83,4 +82,14 @@
     font-size: 1.5em;
     border-radius: 15px;
     text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    .modal {
+        width: 85%;
+    }
+
+    .modal-wrap .detail {
+        line-height: 12pt;
+    }
 }

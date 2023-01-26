@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const TickerElem = ({ name }) => {
     return (
@@ -8,4 +8,4 @@ const TickerElem = ({ name }) => {
     );
 };
 
-export default TickerElem;
+export default memo(TickerElem);

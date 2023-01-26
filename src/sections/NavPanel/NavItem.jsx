@@ -1,21 +1,21 @@
-import React from 'react';
-import { Link } from 'react-scroll'
+import React, { memo } from 'react';
+import { Link } from 'react-scroll';
 
-const NavItem = ({ section }) => {
+const NavItem = ({ name }) => {
     return (
         <Link
             activeClass="active"
-            to={section.name}
+            to={name}
             spy={true}
             smooth={true}
             offset={-53}
-            duration={200}
+            duration={400}
         >
-            {section.name}
+            {name}
         </Link>
     );
 };
 
 
 
-export default NavItem;
+export default memo(NavItem);

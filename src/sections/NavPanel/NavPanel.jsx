@@ -1,14 +1,17 @@
+import React from 'react';
+
+import sections from '../../data/Sections.json';
 import NavItem from './NavItem';
-import sections from '../../data/sections.json'
-import './NavPanel.css'
+import './NavPanel.css';
 
 const NavPanel = ({ fixPanel }) => {
     const fixedNavPanel = fixPanel ? 'fixed' : null;
     const classNames = ['flex desk', fixedNavPanel];
+
     const renderNavPanel = () => {
         return sections.map(section => {
             return (
-                <NavItem key={section.name} section={section} />
+                <NavItem key={section.name} name={section.name} />
             );
         });
     };

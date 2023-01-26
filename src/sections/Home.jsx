@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Header from './Header/Header';
 import NavPanel from './NavPanel/NavPanel';
 
 const Home = () => {
-    const [fixPanel, setFixPanel] = useState(false)
-    const { ref, entry } = useInView({
-        /* Optional options */
-        threshold: 0,
-    });
+    const [fixPanel, setFixPanel] = useState(true);
+    const { ref, entry } = useInView();
 
     useEffect(() => {
         if (entry && !entry.isIntersecting) {
@@ -18,7 +14,7 @@ const Home = () => {
         } else {
             setFixPanel(false)
         }
-    }, [entry])
+    }, [entry]);
 
     return (
         <section

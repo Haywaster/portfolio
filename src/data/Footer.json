@@ -1,0 +1,17 @@
+[
+    {
+        "name": "VK",
+        "url": "https://vk.com/haywaster02",
+        "icon": "vk.png"
+    },
+    {
+        "name": "Telegram",
+        "url": "https://t.me/vlstrashko",
+        "icon": "tg.png"
+    },
+    {
+        "name": "Github",
+        "url": "https://github.com/Haywaster",
+        "icon": "gh.png"
+    }
+]

@@ -1,14 +1,20 @@
 import React from 'react';
-import './Contact.css'
+import './Contact.css';
 
 import Form from './Form';
 
 const Contact = ({ ...props }) => {
     return (
-        <div>
-            <div className='highlight'>Have a question or want to work together?</div>
+        <>
+            <div
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-delay="800"
+                className='highlight'>
+                Have a question or want to work together?
+            </div>
             <Form {...props} />
-        </div>
+        </>
     );
 };
 

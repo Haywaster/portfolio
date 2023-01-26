@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import emailjs from "@emailjs/browser";
 
 const Form = ({ setSucces, setError }) => {
-    const form = useRef();
+    const form = useRef(null);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const Form = ({ setSucces, setError }) => {
     };
 
     return (
-        <form ref={form} onSubmit={sendEmail}>
+        <form data-aos="zoom-in-up" data-aos-delay="1100" ref={form} onSubmit={sendEmail}>
             <input placeholder="Name" type="text" name="name" required />
             <input placeholder="Enter email" type="email" name="email" required />
             <textarea placeholder="Your Message" type="text" name="message"></textarea>

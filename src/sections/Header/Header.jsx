@@ -1,23 +1,13 @@
-import LinkTo from '../../components/LinkTo/LinkTo';
-import './Header.css'
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+import LinkTo from '../../components/LinkTo/LinkTo';
+import './Header.css';
 
 const Header = () => {
     return (
         <>
-            <div className="context flex">
-                <div className='text'>
-                    Hello, I'm<span className="highlight"> Strashko Vladimir</span>.
-                    <br />
-                    I'm a frontend developer.
-                </div>
-                <LinkTo
-                    filling={'View my work'}
-                    param={
-                        <FontAwesomeIcon className='arrow' icon={faArrowRight} />
-                    } />
-            </div>
             <div className="area" >
                 <ul className="circles">
                     <li></li>
@@ -32,6 +22,18 @@ const Header = () => {
                     <li></li>
                 </ul>
             </div >
+            <div className="context flex">
+                <h1 className='text'>
+                    Hello, I'm <span className="highlight">Vladimir Strashko</span>.
+                    <br />
+                    I'm a frontend developer.
+                </h1>
+                <LinkTo
+                    filling={'View my work'}
+                    param={
+                        <FontAwesomeIcon className='arrow' icon={faArrowRight} />
+                    } />
+            </div>
         </>
     );
 };

@@ -43,13 +43,16 @@
 /* Gallery */
 
 #gallery {
-    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
     padding: 0;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+}
+
+#portfolio .highlight {
+    color: #e31b6d;
 }
 
 .mix {
@@ -80,11 +83,6 @@
     font-weight: 700;
 }
 
-.highlight {
-    cursor: default;
-    color: #e31b6d;
-}
-
 .mix:hover .text {
     cursor: default;
     opacity: 1;
@@ -93,4 +91,19 @@
 
 .mix:hover .card {
     opacity: 0;
+}
+
+@media screen and (max-width: 960px) {
+    .card {
+        height: 200px;
+        width: 290px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .filter {
+        margin: 0;
+        font-size: 10pt;
+        padding: 0 25px;
+    }
 }

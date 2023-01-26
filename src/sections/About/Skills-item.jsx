@@ -6,20 +6,17 @@ const SkillsItem = ({ header, width, fillMax }) => {
     useEffect(() => {
         if (width >= fillMax) {
             setFillItem(fillMax)
-        }
+        };
         return
-    }, [fillMax])
+    }, [fillMax, width]);
 
     return (
-        <>
-            <div className="bar flex">
-                <div className="bar fill" style={{ "width": `${fillItem}%` }}>
-                    <div className="tag bold flex">{header}</div>
-                </div>
-                <span>{fillItem}%</span>
+        <div className="bar flex">
+            <div className="bar fill" style={{ "width": `${fillItem}%` }}>
+                <div className="tag bold flex">{header}</div>
             </div>
-        </>
-
+            <span>{fillItem}%</span>
+        </div>
     );
 };
 

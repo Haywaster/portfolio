@@ -8,9 +8,9 @@ const LinkTo = ({ filling, param }) => {
             to='about'
             smooth={true}
             offset={-53}
-            duration={200}
+            duration={300}
         >
-            <div className='btn-text'>{filling}</div>
+            <span className='btn-text'>{filling}</span>
             {param}
         </Link>
     );

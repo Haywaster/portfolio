@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
+import Helmet from 'react-helmet';
 import 'aos/dist/aos.css';
-import projects from './data/Projects.json';
 
+import projects from './data/Projects.json';
 import Container from './components/Container/Container';
 import About from './sections/About/About';
 import Home from './sections/Home';
@@ -12,6 +13,7 @@ import Contact from './sections/Contact/Contact';
 import ModalWrap from './components/ModalWrap/ModalWrap';
 import SuccesModal from './components/ModalWrap/SuccesModal';
 import ErrorModal from './components/ModalWrap/ErrorModal';
+import Footer from './sections/Footer/Footer';
 
 const App = () => {
     const [activeModal, setActiveModal] = useState(false);
@@ -21,18 +23,27 @@ const App = () => {
 
     useEffect(() => {
         AOS.init({
-            once: true
+            once: true,
+            easing: 'ease-out-back'
         });
     }, []);
 
     const setClose = () => {
-        setActiveModal(false)
-        setSucces(false)
-        setError(false)
-    }
+        setActiveModal(false);
+        setSucces(false);
+        setError(false);
+    };
 
     return (
         <>
+            <Helmet>
+                <meta
+                    name='description'
+                    content='Strashko Vladimir website'>
+                </meta>
+                <title>Vladimir Strashko</title>
+            </Helmet>
+
             <ModalWrap
                 modal={activeModal}
                 success={success}
@@ -56,6 +67,8 @@ const App = () => {
             <Container id='contact' direction='right'>
                 <Contact setSucces={setSucces} setError={setError} />
             </Container>
+
+            <Footer />
         </>
     );
 };

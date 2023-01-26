@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import SkillsItem from './Skills-item';
+
 import { skills } from '../../data/Skills';
+import SkillsItem from './Skills-item';
 
 const Skills = () => {
-    const [fillMax, setFillMax] = useState(0)
+    const [fillMax, setFillMax] = useState(0);
 
     const renderSkills = () => {
         return skills.map(skill => {
@@ -12,9 +13,9 @@ const Skills = () => {
                     key={skill.header}
                     fillMax={fillMax}
                     {...skill} />
-            )
-        })
-    }
+            );
+        });
+    };
 
     let elements = renderSkills();
 
@@ -27,9 +28,9 @@ const Skills = () => {
                     }
                     return prev + 1
                 })
-            }, 10)
-        }
-    }
+            }, 10);
+        };
+    };
 
     return (
         <div
@@ -37,7 +38,6 @@ const Skills = () => {
             id='skills'
             data-aos="fade-left"
             data-aos-duration="1000"
-            data-aos-anchor-placement="top-center"
             className="flex flex-50-gt-sm bars-wrap">
             {elements}
         </div>

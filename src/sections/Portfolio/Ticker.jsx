@@ -1,6 +1,7 @@
 import React from 'react';
-import TickerElem from './TickerElem';
+
 import filtersData from '../../data/Filters.json';
+import TickerElem from './TickerElem';
 
 const Ticker = ({ width, left }) => {
     const renderTickerElems = () => {

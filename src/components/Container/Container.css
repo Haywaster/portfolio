@@ -1,7 +1,6 @@
 section .container {
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
     padding: 100px 0 130px 0;
 }
 
@@ -36,4 +35,16 @@ section .container {
     background: white;
     margin: 25px 0 40px 0;
     width: 110px;
+}
+
+@media screen and (max-width: 1030px) {
+    .header-bar {
+        margin: 25px 0 70px 0;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    section .container {
+        padding: 100px 0 90px 0;
+    }
 }
