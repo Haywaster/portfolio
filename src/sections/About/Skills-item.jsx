@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const SkillsItem = ({ header, width, fillMax }) => {
     const [fillItem, setFillItem] = useState(0);
@@ -6,8 +7,8 @@ const SkillsItem = ({ header, width, fillMax }) => {
     useEffect(() => {
         if (width >= fillMax) {
             setFillItem(fillMax)
-        };
-        return
+        }
+        return;
     }, [fillMax, width]);
 
     return (
@@ -18,6 +19,12 @@ const SkillsItem = ({ header, width, fillMax }) => {
             <span>{fillItem}%</span>
         </div>
     );
+};
+
+SkillsItem.propTypes = {
+    header: PropTypes.string,
+    width: PropTypes.number,
+    fillMax: PropTypes.number,
 };
 
 export default SkillsItem;

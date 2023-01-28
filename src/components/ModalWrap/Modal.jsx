@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Button from '../Button/Button';
-import { Carousel } from '../Carousel/Carousel';
+import Button from '../Button';
+import Carousel from '../Carousel';
 
-const Mask = ({ card }) => {
+const Modal = ({ card }) => {
     return (
         <>
             <Carousel {...card} />
@@ -17,4 +18,8 @@ const Mask = ({ card }) => {
     );
 };
 
-export default Mask;
+Modal.propTypes = {
+    card: PropTypes.object,
+}
+
+export default Modal;

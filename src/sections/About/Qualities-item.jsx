@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import PropTypes from 'prop-types';
 
 const QualitiesItem = ({ picture, header, descr, num }) => {
     return (
@@ -15,6 +16,13 @@ const QualitiesItem = ({ picture, header, descr, num }) => {
             </div>
         </div>
     );
+};
+
+QualitiesItem.propTypes = {
+    picture: PropTypes.string,
+    header: PropTypes.string,
+    descr: PropTypes.string,
+    num: PropTypes.number,
 };
 
 export default QualitiesItem;

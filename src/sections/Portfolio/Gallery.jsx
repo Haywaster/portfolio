@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import { MProject } from './Project';
 
@@ -23,6 +24,11 @@ const Gallery = ({ cards, setActiveModal }) => {
             </AnimatePresence >
         </motion.div >
     );
+};
+
+Gallery.propTypes = {
+    cards: PropTypes.array,
+    setActiveModal: PropTypes.func,
 };
 
 export default memo(Gallery);

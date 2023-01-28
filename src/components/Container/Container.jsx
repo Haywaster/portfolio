@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Container.css';
 
@@ -17,5 +18,11 @@ const Container = ({ children, id, direction }) => {
         </section>
     );
 };
+
+Container.propTypes = {
+    children: PropTypes.element.isRequired,
+    id: PropTypes.string,
+    direction: PropTypes.string,
+}
 
 export default Container;

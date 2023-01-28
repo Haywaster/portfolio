@@ -6,13 +6,14 @@ import { Link } from 'react-scroll';
 import social from '../../data/Footer.json';
 import './Footer.css';
 
+const vkStyle = { scale: '1.3' };
+
+const Qwerty = {
+    increace: { y: [0, 130, -130, 0] }
+};
+
 const Footer = () => {
     const [isHovered, setHovered] = useState(false)
-    const vkStyle = { scale: '1.3' };
-
-    const Qwerty = {
-        increace: { y: [0, 130, -130, 0] }
-    }
 
     const renderSocial = () => {
         return social.map(el =>

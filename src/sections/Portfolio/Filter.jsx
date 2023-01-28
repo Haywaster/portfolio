@@ -1,4 +1,6 @@
 import React, { memo, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+
 import projects from '../../data/Projects.json';
 
 const Filter = ({ name, setWidth, setLeft, setCards }) => {
@@ -28,6 +30,13 @@ const Filter = ({ name, setWidth, setLeft, setCards }) => {
             {name}
         </div>
     );
+};
+
+Filter.propTypes = {
+    name: PropTypes.string,
+    setWidth: PropTypes.func,
+    setLeft: PropTypes.func,
+    setCards: PropTypes.func,
 };
 
 export default memo(Filter);

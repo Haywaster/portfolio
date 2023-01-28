@@ -24,9 +24,9 @@ const Header = () => {
             </div >
             <div className="context flex">
                 <h1 className='text'>
-                    Hello, I'm <span className="highlight">Vladimir Strashko</span>.
+                    Hello, I&apos;m <span className="highlight">Vladimir Strashko</span>.
                     <br />
-                    I'm a frontend developer.
+                    I&apos;m a frontend developer.
                 </h1>
                 <LinkTo
                     filling={'View my work'}

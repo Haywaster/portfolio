@@ -17,7 +17,7 @@ const Skills = () => {
         });
     };
 
-    let elements = renderSkills();
+    const elements = renderSkills();
 
     const setFilling = (event) => {
         if (event.propertyName === "transform") {
@@ -26,10 +26,10 @@ const Skills = () => {
                     if (prev >= 100 - 1) {
                         clearInterval(filling)
                     }
-                    return prev + 1
+                    return prev + 1;
                 })
             }, 10);
-        };
+        }
     };
 
     return (

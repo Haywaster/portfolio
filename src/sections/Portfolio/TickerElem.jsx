@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
 const TickerElem = ({ name }) => {
     return (
@@ -6,6 +7,10 @@ const TickerElem = ({ name }) => {
             {name}
         </div>
     );
+};
+
+TickerElem.propTypes = {
+    name: PropTypes.string,
 };
 
 export default memo(TickerElem);

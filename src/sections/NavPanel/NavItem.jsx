@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Link } from 'react-scroll';
+import PropTypes from 'prop-types';
 
 const NavItem = ({ name }) => {
     return (
@@ -16,6 +17,8 @@ const NavItem = ({ name }) => {
     );
 };
 
-
+NavItem.propTypes = {
+    name: PropTypes.string,
+};
 
 export default memo(NavItem);

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from "@emailjs/browser";
+import PropTypes from 'prop-types';
 
 const Form = ({ setSucces, setError }) => {
     const form = useRef(null);
@@ -36,6 +37,11 @@ const Form = ({ setSucces, setError }) => {
             <input type="submit" className="btn submit" id="submit" value="SUBMIT" />
         </form>
     );
+};
+
+Form.propTypes = {
+    setSucces: PropTypes.func,
+    setError: PropTypes.func,
 };
 
 export default Form;

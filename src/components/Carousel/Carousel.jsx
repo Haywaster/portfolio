@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { Icon } from "@iconify/react";
@@ -28,7 +29,7 @@ const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
 };
 
-export const Carousel = ({ name, filter, images }) => {
+const Carousel = ({ name, filter, images }) => {
     const url = [...images].map(el => `/img/filling/${filter.toLowerCase()}/${name}/${el}`);
     const [[page, direction], setPage] = useState([0, 0]);
     const imageIndex = wrap(0, url.length, page);
@@ -59,7 +60,7 @@ export const Carousel = ({ name, filter, images }) => {
                             paginate(1);
                         } else if (swipe > swipeConfidenceThreshold) {
                             paginate(-1);
-                        };
+                        }
                     }}
                 />
             </AnimatePresence>
@@ -68,3 +69,11 @@ export const Carousel = ({ name, filter, images }) => {
         </motion.div>
     );
 };
+
+Carousel.propTypes = {
+    name: PropTypes.string,
+    filter: PropTypes.string,
+    images: PropTypes.array,
+};
+
+export default Carousel;

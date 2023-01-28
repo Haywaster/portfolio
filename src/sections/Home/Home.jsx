@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import Header from './Header/Header';
-import NavPanel from './NavPanel/NavPanel';
+import Header from '../Header';
+import NavPanel from '../NavPanel';
 
 const Home = () => {
     const [fixPanel, setFixPanel] = useState(true);

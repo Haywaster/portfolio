@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 
@@ -9,7 +10,7 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
     const ref = useRef(null);
 
     const countScroll = () => {
-        let div = document.createElement('div')
+        let div = document.createElement('div');
         div.style.overflowY = 'scroll';
         document.body.appendChild(div);
         setScroll(div.offsetWidth - div.clientWidth);
@@ -22,12 +23,12 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
         const handleClickOutside = (event) => {
             if (ref.current && !ref.current.contains(event.target)) {
                 onClose();
-            };
+            }
         };
         if (modal || success || error) {
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scroll}px`;
-        };
+        }
 
         document.addEventListener('click', handleClickOutside, true);
         return () => {
@@ -63,6 +64,14 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
             ) : null}
         </AnimatePresence>
     );
+};
+
+ModalWrap.propTypes = {
+    modal: PropTypes.string,
+    success: PropTypes.bool,
+    error: PropTypes.bool,
+    onClose: PropTypes.func,
+    children: PropTypes.array.isRequired,
 };
 
 export default ModalWrap;

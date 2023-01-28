@@ -4,22 +4,21 @@ import Helmet from 'react-helmet';
 import 'aos/dist/aos.css';
 
 import projects from './data/Projects.json';
-import Container from './components/Container/Container';
-import About from './sections/About/About';
+import Container from './components/Container';
+import ModalWrap from './components/ModalWrap';
+import Modal from './components/ModalWrap/Modal';
+
 import Home from './sections/Home';
-import Portfolio from './sections/Portfolio/Portfolio';
-import Mask from './components/ModalWrap/Mask';
-import Contact from './sections/Contact/Contact';
-import ModalWrap from './components/ModalWrap/ModalWrap';
-import SuccesModal from './components/ModalWrap/SuccesModal';
-import ErrorModal from './components/ModalWrap/ErrorModal';
-import Footer from './sections/Footer/Footer';
+import About from './sections/About';
+import Portfolio from './sections/Portfolio';
+import Contact from './sections/Contact';
+import Footer from './sections/Footer';
 
 const App = () => {
-    const [activeModal, setActiveModal] = useState(false);
+    const [cards, setCards] = useState(projects);
+    const [activeModal, setActiveModal] = useState('');
     const [success, setSucces] = useState(false);
     const [error, setError] = useState(false);
-    const [cards, setCards] = useState(projects);
 
     useEffect(() => {
         AOS.init({
@@ -37,11 +36,16 @@ const App = () => {
     return (
         <>
             <Helmet>
-                <meta
-                    name='description'
-                    content='Strashko Vladimir website'>
-                </meta>
-                <title>Vladimir Strashko</title>
+                <title>Vladimir Strashko - Frontend developer</title>
+
+                <meta name="title" content="Vladimir Strashko - Frontend developer"></meta>
+                <meta name='description' content='Vladimir Strashko creates beautiful UIs for users from all over the world 🚀. Sites for every taste✔️'></meta>
+
+                <meta property="og:type" content="website"></meta>
+                <meta property="og:title" content="Vladimir Strashko - Frontend developer"></meta>
+                <meta property="og:description" content="Vladimir Strashko creates beautiful UIs for users from all over the world 🚀. Sites for every taste✔️"></meta>
+                <meta property="og:url" content="http://vlstrashko.ru/"></meta>
+                <meta property="og:image" content="http://vlstrashko.ru/img/me.webp"></meta>
             </Helmet>
 
             <ModalWrap
@@ -49,9 +53,22 @@ const App = () => {
                 success={success}
                 error={error}
                 onClose={() => setClose()}>
-                {activeModal && <Mask card={cards.find(card => activeModal === card.name)} />}
-                {success && <SuccesModal />}
-                {error && <ErrorModal />}
+                {activeModal && <Modal card={cards.find(card => activeModal === card.name)} />}
+
+                {success &&
+                    <>
+                        Your message was sent successfully.
+                        <br />
+                        Thanks!
+                    </>}
+
+                {error &&
+                    <>
+                        Your message was not delivered :(
+                        <br />
+                        Please contact via messenger
+                    </>
+                }
             </ModalWrap>
 
             <Home />
