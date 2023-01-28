@@ -10,9 +10,7 @@
 
 .carousel img {
     position: absolute;
-    top: 0;
-    /* max-width: 100vw; */
-    max-height: 100%;
+    max-width: -webkit-fill-available;
 }
 
 .next,

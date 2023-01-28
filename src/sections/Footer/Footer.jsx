@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-scroll';
@@ -13,7 +13,7 @@ const Qwerty = {
 };
 
 const Footer = () => {
-    const [isHovered, setHovered] = useState(false)
+    const [isHovered, setHovered] = useState(false);
 
     const renderSocial = () => {
         return social.map(el =>
@@ -52,4 +52,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default memo(Footer);

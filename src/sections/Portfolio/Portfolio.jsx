@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import Gallery from './Gallery';
@@ -27,4 +27,4 @@ Portfolio.propTypes = {
     setActiveModal: PropTypes.func,
 };
 
-export default Portfolio;
+export default memo(Portfolio);

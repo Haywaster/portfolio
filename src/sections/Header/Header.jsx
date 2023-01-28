@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import LinkTo from '../../components/LinkTo/LinkTo';
+import LinkTo from '../../components/LinkTo';
 import './Header.css';
 
 const Header = () => {
@@ -38,4 +38,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default memo(Header);

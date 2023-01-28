@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import AOS from 'aos';
 import Helmet from 'react-helmet';
 import 'aos/dist/aos.css';
@@ -20,6 +20,8 @@ const App = () => {
     const [success, setSucces] = useState(false);
     const [error, setError] = useState(false);
 
+    const activeCard = cards.find(card => activeModal === card.name);
+
     useEffect(() => {
         AOS.init({
             once: true,
@@ -27,11 +29,11 @@ const App = () => {
         });
     }, []);
 
-    const setClose = () => {
-        setActiveModal(false);
+    const setClose = useCallback(() => {
+        setActiveModal('');
         setSucces(false);
         setError(false);
-    };
+    }, [activeModal, success, error]);
 
     return (
         <>
@@ -53,7 +55,7 @@ const App = () => {
                 success={success}
                 error={error}
                 onClose={() => setClose()}>
-                {activeModal && <Modal card={cards.find(card => activeModal === card.name)} />}
+                {activeModal && <Modal activeCard={activeCard} />}
 
                 {success &&
                     <>

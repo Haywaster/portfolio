@@ -1,21 +1,23 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 
 import './ModalWrap.css';
 
-const ModalWrap = ({ modal, success, error, onClose, children, }) => {
-    const [scroll, setScroll] = useState(0)
-    const ref = useRef(null);
+let scrollCount = 0;
 
-    const countScroll = () => {
-        let div = document.createElement('div');
-        div.style.overflowY = 'scroll';
-        document.body.appendChild(div);
-        setScroll(div.offsetWidth - div.clientWidth);
-        div.remove();
-    }
+const countScroll = () => {
+    const div = document.createElement('div');
+    div.style.overflowY = 'scroll';
+    document.body.appendChild(div);
+    scrollCount = div.offsetWidth - div.clientWidth;
+    div.remove();
+}
+
+
+const ModalWrap = ({ modal, success, error, onClose, children, }) => {
+    const ref = useRef(null);
 
     useEffect(() => {
         countScroll();
@@ -27,14 +29,14 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
         };
         if (modal || success || error) {
             document.body.style.overflow = 'hidden';
-            document.body.style.paddingRight = `${scroll}px`;
+            document.body.style.paddingRight = `${scrollCount}px`;
         }
 
         document.addEventListener('click', handleClickOutside, true);
         return () => {
             document.removeEventListener('click', handleClickOutside, true);
             document.body.style.overflowY = 'scroll';
-            document.body.style.paddingRight = `${0}px`;
+            document.body.style.paddingRight = 0;
         };
     }, [onClose, modal, success, error]);
 
@@ -74,4 +76,4 @@ ModalWrap.propTypes = {
     children: PropTypes.array.isRequired,
 };
 
-export default ModalWrap;
+export default memo(ModalWrap);

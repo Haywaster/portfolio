@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Icon } from '@iconify/react';
 import PropTypes from 'prop-types';
 
@@ -19,4 +19,4 @@ Button.propTypes = {
     content: PropTypes.string,
 }
 
-export default Button;
+export default memo(Button);

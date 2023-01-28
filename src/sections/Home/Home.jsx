@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Header from '../Header';
@@ -27,4 +27,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default memo(Home);

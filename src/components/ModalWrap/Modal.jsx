@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import Carousel from '../Carousel';
 
-const Modal = ({ card }) => {
+const Modal = ({ activeCard }) => {
+    const { name, filter, images, brief, descr, url } = activeCard;
+    const urlArr = images.map(el => `/img/filling/${filter}/${name}/${el}`);
+
     return (
         <>
-            <Carousel {...card} />
+            <Carousel urlArr={urlArr} />
             <div className='info-box'>
-                <div className="title">{card.name}</div>
-                <div className="tag">{card.brief.toUpperCase()}</div>
-                <div className="detail">{card.descr}</div>
-                <Button content='open-in-new' text='View code' action={() => window.open(card.url, "_blank")} />
+                <div className="title">{name}</div>
+                <div className="tag">{brief}</div>
+                <div className="detail">{descr}</div>
+                <Button content='open-in-new' text='View code' action={() => window.open(url, "_blank")} />
             </div>
         </>
     );
 };
 
 Modal.propTypes = {
-    card: PropTypes.object,
+    activeCard: PropTypes.object,
+    name: PropTypes.string,
+    filter: PropTypes.string,
+    images: PropTypes.array,
+    brief: PropTypes.string,
+    descr: PropTypes.string,
+    url: PropTypes.string,
 }
 
-export default Modal;
+export default memo(Modal);

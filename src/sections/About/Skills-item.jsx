@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 
 const SkillsItem = ({ header, width, fillMax }) => {
@@ -27,4 +27,4 @@ SkillsItem.propTypes = {
     fillMax: PropTypes.number,
 };
 
-export default SkillsItem;
+export default memo(SkillsItem);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
@@ -29,10 +29,9 @@ const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
 };
 
-const Carousel = ({ name, filter, images }) => {
-    const url = [...images].map(el => `/img/filling/${filter.toLowerCase()}/${name}/${el}`);
+const Carousel = ({ urlArr }) => {
     const [[page, direction], setPage] = useState([0, 0]);
-    const imageIndex = wrap(0, url.length, page);
+    const imageIndex = wrap(0, urlArr.length, page);
 
     const paginate = (newDirection) => {
         setPage([page + newDirection, newDirection]);
@@ -43,8 +42,8 @@ const Carousel = ({ name, filter, images }) => {
                 <motion.img
                     className="slider-img"
                     key={page}
-                    src={url[imageIndex]}
                     custom={direction}
+                    src={urlArr[imageIndex]}
                     variants={variants}
                     initial="enter"
                     animate="center"
@@ -71,9 +70,7 @@ const Carousel = ({ name, filter, images }) => {
 };
 
 Carousel.propTypes = {
-    name: PropTypes.string,
-    filter: PropTypes.string,
-    images: PropTypes.array,
+    urlArr: PropTypes.array,
 };
 
-export default Carousel;
+export default memo(Carousel);

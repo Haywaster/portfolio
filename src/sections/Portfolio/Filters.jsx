@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import filtersData from '../../data/Filters.json';
 import Filter from './Filter';
@@ -23,4 +23,4 @@ const Filters = ({ ...props }) => {
     );
 };
 
-export default Filters;
+export default memo(Filters);

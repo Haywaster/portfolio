@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import './Container.css';
@@ -25,4 +25,4 @@ Container.propTypes = {
     direction: PropTypes.string,
 }
 
-export default Container;
+export default memo(Container);

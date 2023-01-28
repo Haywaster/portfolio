@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Form from './Form';
 import './Contact.css';
 
 
-const Contact = ({ ...props }) => {
+const Contact = (props) => {
     return (
         <>
             <div
@@ -19,4 +19,4 @@ const Contact = ({ ...props }) => {
     );
 };
 
-export default Contact;
+export default memo(Contact);

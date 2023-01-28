@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import filtersData from '../../data/Filters.json';
@@ -30,4 +30,4 @@ Ticker.propTypes = {
     left: PropTypes.number,
 };
 
-export default Ticker;
+export default memo(Ticker);
