@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background: radial-gradient(circle, rgb(221, 237, 243) 30%, rgb(249, 204, 228) 70%);
 }
 
 .carousel img {

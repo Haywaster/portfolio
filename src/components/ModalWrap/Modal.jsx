@@ -6,7 +6,7 @@ import Carousel from '../Carousel';
 
 const Modal = ({ activeCard }) => {
     const { name, filter, images, brief, descr, url } = activeCard;
-    const urlArr = images.map(el => `/img/filling/${filter}/${name}/${el}`);
+    const urlArr = images.map(el => `/img/filling/${filter.toLowerCase()}/${name}/${el}`);
 
     return (
         <>

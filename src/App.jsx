@@ -55,7 +55,7 @@ const App = () => {
                 success={success}
                 error={error}
                 onClose={() => setClose()}>
-                {activeModal && <Modal activeCard={activeCard} />}
+                {activeModal && <Modal tabIndex="0" onKeyDown={(e) => console.log(e.key)} activeCard={activeCard} />}
 
                 {success &&
                     <>

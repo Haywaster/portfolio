@@ -15,12 +15,15 @@ const countScroll = () => {
     div.remove();
 }
 
-
 const ModalWrap = ({ modal, success, error, onClose, children, }) => {
     const ref = useRef(null);
-
     useEffect(() => {
         countScroll();
+        const keyClose = e => {
+            if (e.keyCode === 27) {
+                onClose()
+            }
+        };
 
         const handleClickOutside = (event) => {
             if (ref.current && !ref.current.contains(event.target)) {
@@ -33,8 +36,11 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
         }
 
         document.addEventListener('click', handleClickOutside, true);
+        document.addEventListener('keydown', keyClose);
+
         return () => {
             document.removeEventListener('click', handleClickOutside, true);
+            document.removeEventListener('keydown', keyClose);
             document.body.style.overflowY = 'scroll';
             document.body.style.paddingRight = 0;
         };

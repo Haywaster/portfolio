@@ -10,6 +10,7 @@ module.exports = {
     "overrides": [
     ],
     "parserOptions": {
+        "requireConfigFile": false,
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
@@ -17,5 +18,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-    }
+    },
+    "parser": "@babel/eslint-parser",
 }
