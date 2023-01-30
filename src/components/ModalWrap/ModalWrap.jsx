@@ -15,7 +15,7 @@ const countScroll = () => {
     div.remove();
 }
 
-const ModalWrap = ({ modal, success, error, onClose, children, }) => {
+const ModalWrap = ({ modal, success, loading, error, onClose, children, }) => {
     const ref = useRef(null);
     useEffect(() => {
         countScroll();
@@ -30,7 +30,7 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
                 onClose();
             }
         };
-        if (modal || success || error) {
+        if (modal || success || error || loading) {
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scrollCount}px`;
         }
@@ -44,11 +44,11 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
             document.body.style.overflowY = 'scroll';
             document.body.style.paddingRight = 0;
         };
-    }, [onClose, modal, success, error]);
+    }, [onClose, modal, success, error, loading]);
 
     return (
         <AnimatePresence initial={false}>
-            {success || error || modal ? (
+            {success || error || modal || loading ? (
                 <motion.div className="modal-wrap flex">
                     <motion.div className='mask'
                         initial={{ opacity: 0 }}
@@ -60,13 +60,13 @@ const ModalWrap = ({ modal, success, error, onClose, children, }) => {
                     <motion.div
                         ref={ref}
                         key={modal}
-                        className={success || error ? 'modal notification' : 'modal'}
+                        className={success || error || loading ? 'modal notification' : 'modal'}
                         initial={{ scale: 0.7, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.7, opacity: 0 }}
                         transition={{ duration: 0.3 }}>
                         {children}
-                        <Icon onClick={onClose} className='mdi mdi-close' icon='mdi:close' />
+                        {!loading && <Icon onClick={onClose} className='mdi mdi-close' icon='mdi:close' />}
                     </motion.div>
                 </motion.div>
             ) : null}
@@ -78,6 +78,7 @@ ModalWrap.propTypes = {
     modal: PropTypes.string,
     success: PropTypes.bool,
     error: PropTypes.bool,
+    loading: PropTypes.bool,
     onClose: PropTypes.func,
     children: PropTypes.array.isRequired,
 };

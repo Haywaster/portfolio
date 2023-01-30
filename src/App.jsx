@@ -13,11 +13,13 @@ import About from './sections/About';
 import Portfolio from './sections/Portfolio';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import Spinner from './components/Spinner';
 
 const App = () => {
     const [cards, setCards] = useState(projects);
     const [activeModal, setActiveModal] = useState('');
     const [success, setSucces] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
     const activeCard = cards.find(card => activeModal === card.name);
@@ -54,9 +56,11 @@ const App = () => {
                 modal={activeModal}
                 success={success}
                 error={error}
+                loading={loading}
                 onClose={() => setClose()}>
                 {activeModal && <Modal tabIndex="0" onKeyDown={(e) => console.log(e.key)} activeCard={activeCard} />}
 
+                {loading && <div><Spinner /></div>}
                 {success &&
                     <>
                         Your message was sent successfully.
@@ -84,7 +88,7 @@ const App = () => {
             </Container>
 
             <Container id='contact' direction='right'>
-                <Contact setSucces={setSucces} setError={setError} />
+                <Contact setSucces={setSucces} setError={setError} loading={loading} setLoading={setLoading} />
             </Container>
 
             <Footer />

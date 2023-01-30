@@ -60,9 +60,9 @@
 }
 
 .card {
+    object-fit: cover;
     height: 300px;
     width: 390px;
-    background: center center/cover;
     transition: opacity 0.5s;
 }
 

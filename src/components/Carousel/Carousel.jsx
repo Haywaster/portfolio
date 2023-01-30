@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { Icon } from "@iconify/react";
 
-import Spiner from '../Spinner';
+import Spinner from '../Spinner';
 import './Carousel.css';
 
 const variants = {
@@ -31,7 +31,7 @@ const swipePower = (offset, velocity) => {
 };
 
 const Carousel = ({ urlArr }) => {
-    const [loading, setLoading] = useState(false);
+    const [whatToLoad, setWhatToLoad] = useState('');
     const [[page, direction], setPage] = useState([0, 0]);
     const imageIndex = wrap(0, urlArr.length, page);
 
@@ -60,7 +60,7 @@ const Carousel = ({ urlArr }) => {
             <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                     className="slider-img"
-                    onLoad={(e) => setLoading(e.target.attributes.src.value)}
+                    onLoad={(e) => setWhatToLoad(e.target.attributes.src.value)}
                     key={page}
                     custom={direction}
                     src={urlArr[imageIndex]}
@@ -83,7 +83,7 @@ const Carousel = ({ urlArr }) => {
                     }}
                 />
             </AnimatePresence>
-            {loading !== urlArr[imageIndex] && <Spiner />}
+            {whatToLoad !== urlArr[imageIndex] && <Spinner />}
             <Icon onClick={() => paginate(1)} className='next mdi mdi-chevron-right' icon='mdi:chevron-right' />
             <Icon onClick={() => paginate(-1)} className='prev mdi mdi-chevron-left' icon='mdi:chevron-left' />
         </motion.div >
