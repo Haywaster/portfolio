@@ -1,35 +1,43 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-scroll';
 
 import sections from '../../data/Sections.json';
-import NavItem from './NavItem';
-import './NavPanel.css';
+import styles from './NavPanel.module.css';
 
-const renderNavPanel = () => {
-    return sections.map(section => {
-        return (
-            <NavItem key={section.name} name={section.name} />
-        );
-    });
-};
+const NavPanel = ({ fixPanel, setActiveSection }) => {
+	const fixedNavPanel = fixPanel ? styles.fixed : '';
+	const classNames = [styles.desk, fixedNavPanel];
 
-const elements = renderNavPanel();
+	const renderNavPanel = () =>
+		sections.map(section => (
+			<Link
+				className={styles.link}
+				key={section.name}
+				activeClass={styles.active}
+				onSetActive={setActiveSection}
+				to={section.name}
+				spy={true}
+				smooth={true}
+				offset={-53}
+				duration={400}
+			>
+				{section.name}
+			</Link>
+		));
 
-const NavPanel = ({ fixPanel }) => {
-    const fixedNavPanel = fixPanel ? 'fixed' : null;
-    const classNames = ['flex desk', fixedNavPanel];
+	const elements = renderNavPanel();
 
-    return (
-        <nav className={classNames.join(' ')}>
-            <div className='link-wrap'>
-                {elements}
-            </div>
-        </nav>
-    );
+	return (
+		<nav className={classNames.join(' ')}>
+			<div className={styles.linkWrap}>{elements}</div>
+		</nav>
+	);
 };
 
 NavPanel.propTypes = {
-    fixPanel: PropTypes.bool,
+	fixPanel: PropTypes.bool,
+	setActiveSection: PropTypes.func
 };
 
 export default NavPanel;

@@ -1,0 +1,222 @@
+/* Qualities */
+
+.Qualities {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.Couple {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	padding: 0 15px;
+}
+
+.BulletWrap {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 230px;
+	padding: 0 10px;
+}
+
+.HexWrap {
+	display: inline-block;
+	position: relative;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+}
+
+.Hexagon {
+	height: 100%;
+	width: calc(100% * 0.57735);
+	background-color: #04c2c9;
+	display: inline-block;
+}
+
+.Hexagon:before,
+.Hexagon:after {
+	background-color: inherit;
+	content: '';
+	height: inherit;
+	position: absolute;
+	right: calc((100% / 2) - ((100% * 0.57735) / 2));
+	top: 0;
+	transform: rotateZ(60deg);
+	width: inherit;
+}
+
+.Hexagon:after {
+	transform: rotateZ(-60deg);
+}
+
+.Hexagon svg {
+	font-size: 40pt;
+	width: 100%;
+	display: inline-block;
+	color: #fff;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 20px;
+	z-index: 1;
+}
+
+.Label {
+	margin: 20px 0 10px 0;
+	font-size: 18pt;
+	font-weight: 700;
+}
+
+/* SkillWrapper */
+
+.SkillsWrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	margin: 50px 0 0 0;
+	width: 100%;
+}
+
+.SkillsWrapper > .Wrapper:first-child {
+	padding: 0 50px 0 50px;
+}
+
+.SkillsWrapper .Label {
+	margin: 20px 0 15px 0;
+}
+
+.Wrapper {
+	max-height: 100%;
+	max-width: 50%;
+}
+
+.BarsWrap {
+	width: calc(100% - 15px);
+}
+
+.Me {
+	height: 250px;
+}
+
+p {
+	margin: 0;
+}
+
+.Bar {
+	position: relative;
+	display: flex;
+	align-items: center;
+	max-width: 90%;
+	height: 28px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	font-size: 11pt;
+	background-color: #eee;
+	color: #666;
+}
+
+.Bar:last-child {
+	margin-bottom: 0px;
+}
+
+.Fill {
+	height: inherit;
+	background-color: #00a1a7;
+}
+
+.Bar span {
+	position: absolute;
+	right: 0;
+	padding: 0 15px 0 0;
+	z-index: 1;
+}
+
+.Tag {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	width: 110px;
+	background-color: #04c2c9;
+	color: #fff;
+	height: 100%;
+}
+
+.Highlight {
+	color: #009ada;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1030px) {
+	.SkillsWrapper {
+		flex-wrap: nowrap;
+	}
+
+	.Bar span {
+		padding-right: 10px;
+	}
+}
+
+@media screen and (max-width: 930px) {
+	.Couple,
+	.SkillsWrapper {
+		flex-direction: column;
+	}
+
+	.Wrapper {
+		max-width: 90%;
+	}
+
+	.BarsWrap {
+		margin-top: 30px;
+	}
+
+	.SkillsWrapper > .flex:first-child {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 820px) {
+	.Bar span {
+		padding-right: 0px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.Me {
+		height: 200px;
+	}
+
+	.HexWrap {
+		height: 80px;
+		width: 80px;
+	}
+
+	.Hexagon svg {
+		font-size: 34pt;
+	}
+
+	.Label {
+		font-size: 14pt;
+	}
+
+	.SkillsWrapper {
+		margin: 0;
+	}
+
+	.SkillsWrapper .Me {
+		height: 200px;
+	}
+
+	.Bar {
+		font-size: 10pt;
+		height: 24px;
+	}
+}

@@ -1,10 +1,8 @@
-/* eslint-disable */
-
 import React, { useRef } from 'react';
 import emailjs from "@emailjs/browser";
 import PropTypes from 'prop-types';
 
-const Form = ({ setSucces, setError, setLoading, loading }) => {
+const Form = ({ setSucces, setError, setLoading }) => {
     const form = useRef(null);
 
     const sendEmail = (e) => {

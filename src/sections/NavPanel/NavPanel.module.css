@@ -1,0 +1,61 @@
+.desk {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	height: 50px;
+	width: 100%;
+	background: #1b242f;
+	border-bottom: 3px solid #04c2c9;
+	z-index: 1;
+}
+
+.linkWrap {
+	position: initial;
+	max-width: 1200px;
+	width: 100%;
+	top: 53px;
+	background: none;
+	height: initial;
+	overflow: visible;
+	text-align: left;
+}
+
+.link {
+	color: white;
+	display: inline;
+	font-size: 14pt;
+	margin: 0 20px;
+	padding: initial;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: color 0.5s;
+}
+
+.active {
+	color: #e31b6d;
+	transition: color 0.5s;
+}
+
+.fixed {
+	position: fixed;
+	top: 0;
+	animation: popDown 0.5s;
+}
+
+@keyframes popDown {
+	0% {
+		transform: translateY(-100px);
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.link-wrap {
+		width: auto;
+	}
+
+	.link-wrap > a {
+		margin: 0 10px;
+	}
+}

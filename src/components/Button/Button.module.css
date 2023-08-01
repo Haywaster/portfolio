@@ -1,0 +1,88 @@
+.btn {
+	position: absolute;
+	cursor: pointer;
+	font-size: 13pt;
+	margin: 0 auto;
+	border: 2px solid #e31b6d;
+	transition: all 0.3s ease-in-out;
+}
+
+/* Header section */
+
+.welcomeLink {
+	composes: btn;
+	position: static;
+	width: fit-content;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 10px;
+	font-size: 16pt;
+	border-color: #ffffff;
+	padding: 12px 20px;
+	margin-bottom: 53px;
+}
+
+.up-right-from-square {
+}
+
+.arrow-right {
+	transition: all 0.3s;
+}
+
+/* Portfolio section */
+
+.mixBtn {
+	composes: btn;
+	width: 170px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 7px 0;
+	color: #1b242f;
+	opacity: 0;
+}
+
+.projectBtn {
+	composes: btn;
+	display: flex;
+	gap: 10px;
+	width: fit-content;
+	border-color: #ffffff;
+	margin: 0;
+	padding: 11px 25px;
+	left: 25px;
+	bottom: 20px;
+	background-color: #e31b6d;
+	color: #fff;
+	font-size: 10pt;
+	font-weight: 600;
+}
+
+.mixBtn:hover {
+	background: #e31b6d;
+	color: #fff;
+}
+
+.projectBtn:hover {
+	background: #fff;
+	color: #e31b6d;
+}
+
+.welcomeLink:hover {
+	background-color: #04c2c9;
+	border-color: #04c2c9;
+}
+
+.welcomeLink:hover .arrow-right {
+	transform: rotate(90deg);
+}
+
+.btn .mdi {
+	vertical-align: middle;
+}
+
+.btn .mdi-open-in-new {
+	font-size: 11pt;
+	left: -10px;
+	position: relative;
+}

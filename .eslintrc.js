@@ -10,7 +10,6 @@ module.exports = {
     "overrides": [
     ],
     "parserOptions": {
-        "requireConfigFile": false,
         "ecmaVersion": "latest",
         "sourceType": "module"
     },

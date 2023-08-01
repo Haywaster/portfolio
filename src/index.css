@@ -1,39 +1,23 @@
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "Raleway", sans-serif;
-  text-align: center;
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
 }
 
 section {
-  position: relative;
-  line-height: 18pt;
-  overflow: hidden;
-}
-
-#home {
-  color: #fff;
-  height: calc(100vh + 53px);
-  padding: 0;
+	position: relative;
+	line-height: 18pt;
+	overflow: hidden;
 }
 
 @media screen and (max-width: 500px) {
-  body {
-    line-height: 11pt;
-    font-size: 8pt;
-  }
+	body {
+		line-height: 11pt;
+		font-size: 8pt;
+	}
 
-  section {
-    line-height: 11pt;
-  }
+	section {
+		line-height: 11pt;
+	}
 }

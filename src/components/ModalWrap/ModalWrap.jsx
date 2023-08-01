@@ -1,86 +1,88 @@
-import React, { useRef, useEffect, memo } from 'react';
-import PropTypes from 'prop-types';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React, { memo, useEffect, useRef } from 'react';
 
 import './ModalWrap.css';
 
 let scrollCount = 0;
 
 const countScroll = () => {
-    const div = document.createElement('div');
-    div.style.overflowY = 'scroll';
-    document.body.appendChild(div);
-    scrollCount = div.offsetWidth - div.clientWidth;
-    div.remove();
-}
+	const div = document.createElement('div');
+	div.style.overflowY = 'scroll';
+	document.body.appendChild(div);
+	scrollCount = div.offsetWidth - div.clientWidth;
+	div.remove();
+};
 
-const ModalWrap = ({ modal, success, loading, error, onClose, children, }) => {
-    const ref = useRef(null);
-    useEffect(() => {
-        countScroll();
-        const keyClose = e => {
-            if (e.keyCode === 27) {
-                onClose()
-            }
-        };
+const ModalWrap = ({ modal, success, loading, error, onClose, children }) => {
+	const ref = useRef(null);
+	useEffect(() => {
+		countScroll();
+		const keyClose = e => {
+			if (e.keyCode === 27) {
+				onClose();
+			}
+		};
 
-        const handleClickOutside = (event) => {
-            if (ref.current && !ref.current.contains(event.target)) {
-                onClose();
-            }
-        };
-        if (modal || success || error || loading) {
-            document.body.style.overflow = 'hidden';
-            document.body.style.paddingRight = `${scrollCount}px`;
-        }
+		const handleClickOutside = event => {
+			if (ref.current && !ref.current.contains(event.target)) {
+				onClose();
+			}
+		};
+		if (modal || success || error || loading) {
+			document.body.style.overflow = 'hidden';
+			document.body.style.paddingRight = `${scrollCount}px`;
+		}
 
-        document.addEventListener('click', handleClickOutside, true);
-        document.addEventListener('keydown', keyClose);
+		document.addEventListener('click', handleClickOutside, true);
+		document.addEventListener('keydown', keyClose);
 
-        return () => {
-            document.removeEventListener('click', handleClickOutside, true);
-            document.removeEventListener('keydown', keyClose);
-            document.body.style.overflowY = 'scroll';
-            document.body.style.paddingRight = 0;
-        };
-    }, [onClose, modal, success, error, loading]);
+		return () => {
+			document.removeEventListener('click', handleClickOutside, true);
+			document.removeEventListener('keydown', keyClose);
+			document.body.style.overflowY = 'scroll';
+			document.body.style.paddingRight = 0;
+		};
+	}, [onClose, modal, success, error, loading]);
 
-    return (
-        <AnimatePresence initial={false}>
-            {success || error || modal || loading ? (
-                <motion.div className="modal-wrap flex">
-                    <motion.div className='mask'
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}>
-                    </motion.div>
+	return (
+		<AnimatePresence initial={false}>
+			{success || error || modal || loading ? (
+				<motion.div className='modal-wrap'>
+					<motion.div
+						className='mask'
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.3 }}
+					></motion.div>
 
-                    <motion.div
-                        ref={ref}
-                        key={modal}
-                        className={success || error || loading ? 'modal notification' : 'modal'}
-                        initial={{ scale: 0.7, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.7, opacity: 0 }}
-                        transition={{ duration: 0.3 }}>
-                        {children}
-                        {!loading && <Icon onClick={onClose} className='mdi mdi-close' icon='mdi:close' />}
-                    </motion.div>
-                </motion.div>
-            ) : null}
-        </AnimatePresence>
-    );
+					<motion.div
+						ref={ref}
+						key={modal}
+						className={success || error || loading ? 'modal notification' : 'modal'}
+						initial={{ scale: 0.7, opacity: 0 }}
+						animate={{ scale: 1, opacity: 1 }}
+						exit={{ scale: 0.7, opacity: 0 }}
+						transition={{ duration: 0.3 }}
+					>
+						{children}
+						{!loading && <Icon onClick={onClose} className='mdi mdi-close' icon='mdi:close' />}
+					</motion.div>
+				</motion.div>
+			) : null}
+		</AnimatePresence>
+	);
 };
 
 ModalWrap.propTypes = {
-    modal: PropTypes.string,
-    success: PropTypes.bool,
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    onClose: PropTypes.func,
-    children: PropTypes.array.isRequired,
+	modal: PropTypes.string,
+	success: PropTypes.bool,
+	error: PropTypes.bool,
+	loading: PropTypes.bool,
+	onClose: PropTypes.func,
+	children: PropTypes.array.isRequired
 };
 
 export default memo(ModalWrap);

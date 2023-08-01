@@ -1,95 +1,97 @@
 .modal-wrap {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    pointer-events: initial;
-    z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	z-index: 2;
 }
 
 .mask {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    transition: opacity 0.3s;
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	transition: opacity 0.3s;
 }
 
 .modal {
-    height: initial;
-    width: min-content;
-    top: -6vh;
-    background: #fff;
-    box-shadow: 0 0 10px rgb(0 0 0 / 40%);
-    box-sizing: border-box;
-    color: #333;
-    position: relative;
-    text-align: left;
+	height: initial;
+	width: min-content;
+	top: -6vh;
+	background: #fff;
+	box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+	box-sizing: border-box;
+	color: #333;
+	position: relative;
+	text-align: left;
 }
 
 .modal-wrap .info-box {
-    padding: 35px 60px 90px 25px;
-    border-top: 3px solid #1b242f;
-    box-sizing: border-box;
-    color: #444;
+	padding: 35px 60px 90px 25px;
+	border-top: 3px solid #1b242f;
+	box-sizing: border-box;
+	color: #444;
 }
 
 .modal-wrap .title {
-    font-size: 22pt;
-    line-height: 30pt;
-    font-weight: 700;
+	font-size: 22pt;
+	line-height: 30pt;
+	font-weight: 700;
 }
 
 .modal-wrap .tag {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: #c0c0c0;
-    display: block;
-    font-weight: 700;
-    font-size: 11pt;
-    padding-bottom: 15px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	color: #c0c0c0;
+	display: block;
+	font-weight: 700;
+	font-size: 11pt;
+	padding-bottom: 15px;
 }
 
 .modal-wrap .detail {
-    font-size: 11pt;
-    line-height: 18pt;
-    margin-top: 15px;
+	font-size: 11pt;
+	line-height: 18pt;
+	margin-top: 15px;
 }
 
 .modal-wrap .mdi-close {
-    bottom: 25px;
-    color: #bbb;
-    cursor: pointer;
-    font-size: 20pt;
-    font-weight: 800;
-    position: absolute;
-    right: 25px;
+	bottom: 25px;
+	color: #bbb;
+	cursor: pointer;
+	font-size: 20pt;
+	font-weight: 800;
+	position: absolute;
+	right: 25px;
 }
 
 .modal-body {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .notification {
-    min-height: 200px;
-    width: 600px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    font-weight: 500;
-    font-size: 1.5em;
-    border-radius: 15px;
-    text-align: center;
+	min-height: 200px;
+	width: 600px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	font-weight: 500;
+	font-size: 1.5em;
+	border-radius: 15px;
+	text-align: center;
 }
 
 @media screen and (max-width: 500px) {
-    .modal {
-        width: 85%;
-    }
+	.modal {
+		width: 85%;
+	}
 
-    .modal-wrap .detail {
-        line-height: 12pt;
-    }
+	.modal-wrap .detail {
+		line-height: 12pt;
+	}
 }
