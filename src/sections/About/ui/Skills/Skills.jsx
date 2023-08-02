@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
-import { skills } from '../../../data/Skills';
 import SkillsItem from '../SkillsItem/SkillsItem';
 
-import styles from '../About.module.css';
+import { useSelector } from 'react-redux';
+import { selectAboutData } from '../../../../redux/slices/aboutSlice';
+import styles from '../../About.module.css';
 
 const Skills = () => {
+	const { skills } = useSelector(selectAboutData);
 	const [fillMax, setFillMax] = useState(0);
 
 	const renderSkills = () => {

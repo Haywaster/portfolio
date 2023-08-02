@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-scroll';
 
-import styles from '../About.module.css';
+import styles from '../../About.module.css';
 
 const WhoIAm = ({ direction }) => {
 	return (

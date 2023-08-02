@@ -15,6 +15,7 @@
 @value portfolioBg: #f5f5f5;
 @value contactBg: #252934;
 @value footerBg: #1b242f;
+@value modalBgMask:  rgba(0, 0, 0, 0.5);
 
 /* Other colors */
 
@@ -22,3 +23,4 @@
 @value fillRoads: #00a1a7;
 @value arrowsCarousel:  rgba(0, 0, 0, 0.3);
 @value contactIcon: #262f38;
+@value tagText: #c0c0c0;

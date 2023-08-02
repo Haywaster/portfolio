@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from '../About.module.css';
+import styles from '../../About.module.css';
 
 const QualitiesItem = ({ picture, header, desc, num }) => {
 	return (

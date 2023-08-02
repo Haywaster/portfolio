@@ -1,5 +1,5 @@
 @value colors: "../../shared/variables.css";
-@value footerBg, contactIcon, red, white, cubes from colors;
+@value footerBg, contactIcon, red, white, blue, cubes from colors;
 
 .footer {
 	background: footerBg;
@@ -29,7 +29,7 @@
 }
 
 .icon:hover {
-	background: #04c2c9;
+	background: blue;
 	box-shadow: 0 0 0 3px rgb(4 94 201 / 10%);
 	transform: scale(0.9);
 }
@@ -53,11 +53,11 @@
 	top: -25px;
 	transition: background 0.5s;
 	width: 47px;
-	transition: all 0.15s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 
 .pageLink path {
-	transition: all 0.15s ease-in;
+	transition: all 0.1s ease-in;
 }
 
 .pageLink:hover {

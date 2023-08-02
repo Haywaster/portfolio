@@ -1,6 +1,8 @@
+@value colors: "../../shared/variables.css";
+@value black from colors;
+
 .cssloadLoader {
 	position: relative;
-	/* left: calc(50% - 31px); */
 	width: 120px;
 	height: 120px;
 	margin: auto;
@@ -37,7 +39,7 @@
 	-ms-animation: cssload-rotate-one 1.15s linear infinite;
 	-webkit-animation: cssload-rotate-one 1.15s linear infinite;
 	-moz-animation: cssload-rotate-one 1.15s linear infinite;
-	border-bottom: 5px solid rgb(0, 0, 0);
+	border-bottom: 5px solid black;
 }
 
 .cssloadTwo {
@@ -49,7 +51,7 @@
 	-ms-animation: cssload-rotate-two 1.15s linear infinite;
 	-webkit-animation: cssload-rotate-two 1.15s linear infinite;
 	-moz-animation: cssload-rotate-two 1.15s linear infinite;
-	border-right: 5px solid rgb(0, 0, 0);
+	border-right: 5px solid black;
 }
 
 .cssloadThree {
@@ -61,7 +63,7 @@
 	-ms-animation: cssload-rotate-three 1.15s linear infinite;
 	-webkit-animation: cssload-rotate-three 1.15s linear infinite;
 	-moz-animation: cssload-rotate-three 1.15s linear infinite;
-	border-top: 5px solid rgb(0, 0, 0);
+	border-top: 5px solid black;
 }
 
 @keyframes cssload-rotate-one {

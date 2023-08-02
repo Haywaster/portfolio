@@ -1,3 +1,6 @@
+@value colors: "../../shared/variables.css";
+@value modalBgMask, white, black, navPanelBg, tagText from colors;
+
 .modalWrap {
 	display: flex;
 	align-items: center;
@@ -15,7 +18,7 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
+	background: modalBgMask;
 	transition: opacity 0.3s;
 }
 
@@ -23,19 +26,17 @@
 	height: initial;
 	width: min-content;
 	top: -6vh;
-	background: #fff;
+	background: white;
 	box-shadow: 0 0 10px rgb(0 0 0 / 40%);
-	box-sizing: border-box;
-	color: #333;
 	position: relative;
 	text-align: left;
 }
 
 .infoBox {
 	padding: 35px 60px 90px 25px;
-	border-top: 3px solid #1b242f;
+	border-top: 3px solid black;
 	box-sizing: border-box;
-	color: #444;
+	color: navPanelBg;
 }
 
 .title {
@@ -46,7 +47,7 @@
 
 .tag {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	color: #c0c0c0;
+	color: tagText;
 	display: block;
 	font-weight: 700;
 	font-size: 11pt;
@@ -61,7 +62,7 @@
 
 .close {
 	bottom: 25px;
-	color: #bbb;
+	color: tagText;
 	cursor: pointer;
 	font-size: 20pt;
 	font-weight: 800;

@@ -4,18 +4,8 @@
 /* Qualities */
 
 .qualities {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
-}
-
-.couple {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
-	padding: 0 15px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 }
 
 .bulletWrap {
@@ -143,10 +133,11 @@ p {
 
 .tag {
 	display: flex;
+	width: fit-content;
 	justify-content: center;
 	align-items: center;
 	font-weight: 600;
-	width: 110px;
+	width: 200px;
 	background-color: blue;
 	color: white;
 	height: 100%;
@@ -168,7 +159,10 @@ p {
 }
 
 @media screen and (max-width: 930px) {
-	.couple,
+	.qualities {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
 	.skillsWrapper {
 		flex-direction: column;
 	}
@@ -217,5 +211,11 @@ p {
 	.bar {
 		font-size: 10pt;
 		height: 24px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.bulletWrap {
+		height: 180px;
 	}
 }
