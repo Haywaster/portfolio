@@ -4,12 +4,12 @@ import React, { memo, useState } from 'react';
 import { Link } from 'react-scroll';
 
 import social from '../../data/Footer.json';
-import './Footer.css';
+import styles from './Footer.module.css';
 
 const vkStyle = { scale: '1.3' };
 
 const Qwerty = {
-	increace: { y: [0, 130, -130, 0] }
+	increase: { y: [0, 130, -130, 0] }
 };
 
 const Footer = () => {
@@ -21,13 +21,13 @@ const Footer = () => {
 				<motion.div
 					onMouseEnter={() => setHovered(el.name)}
 					onMouseLeave={() => setHovered(false)}
-					className='icon'
+					className={styles.icon}
 				>
 					<motion.img
 						style={el.name === 'VK' ? vkStyle : null}
 						transition={{ duration: 0.4 }}
 						variants={isHovered === el.name ? Qwerty : null}
-						animate='increace'
+						animate='increase'
 						src={`img/social/${el.icon}`}
 						alt={el.name}
 					/>
@@ -39,12 +39,13 @@ const Footer = () => {
 	const elements = renderSocial();
 
 	return (
-		<footer>
+		<footer className={styles.footer}>
 			<Link to='home' smooth={true} duration={500}>
-				<Icon className='mdi mdi-chevron-double-up page-link' icon='mdi:chevron-double-up' />
+				<Icon className={styles.pageLink} icon='mdi:chevron-double-up' />
 			</Link>
-			<div className='icon-wrap row'>{elements}</div>
-			<div className='footnote'>VLADIMIR STRASHKO</div>
+
+			<div className={styles.iconWrap}>{elements}</div>
+			<div className={styles.footnote}>VLADIMIR STRASHKO</div>
 		</footer>
 	);
 };

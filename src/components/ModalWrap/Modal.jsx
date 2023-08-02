@@ -5,17 +5,19 @@ import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
 import Carousel from '../Carousel';
 
+import styles from './ModalWrap.module.css';
+
 const Modal = ({ activeCard }) => {
-	const { name, filter, images, brief, descr, url } = activeCard;
+	const { name, filter, images, brief, desc, url } = activeCard;
 	const urlArr = images.map(el => `/img/filling/${filter.toLowerCase()}/${name}/${el}`);
 
 	return (
 		<>
 			<Carousel urlArr={urlArr} />
-			<div className='info-box'>
-				<div className='title'>{name}</div>
-				<div className='tag'>{brief}</div>
-				<div className='detail'>{descr}</div>
+			<div className={styles.infoBox}>
+				<div className={styles.title}>{name}</div>
+				<div className={styles.tag}>{brief}</div>
+				<div className={styles.detail}>{desc}</div>
 				<Button
 					btn='projectBtn'
 					category='portfolio'
@@ -35,7 +37,7 @@ Modal.propTypes = {
 	filter: PropTypes.string,
 	images: PropTypes.array,
 	brief: PropTypes.string,
-	descr: PropTypes.string,
+	desc: PropTypes.string,
 	url: PropTypes.string
 };
 

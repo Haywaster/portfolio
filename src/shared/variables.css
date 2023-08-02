@@ -1,0 +1,24 @@
+/* Main colors */
+
+@value red: #e31b6d;
+@value blue: #04c2c9;
+@value white: #fff;
+@value black: #000;
+@value gray: #444649;
+
+/* Colors areas  */
+
+@value homeBg: -webkit-linear-gradient(270deg, #313259, #252641);
+@value carouselBg: radial-gradient(circle, rgb(221, 237, 243) 30%, rgb(249, 204, 228) 70%);
+@value navPanelBg: #1b242f;
+@value aboutBg: #fff;
+@value portfolioBg: #f5f5f5;
+@value contactBg: #252934;
+@value footerBg: #1b242f;
+
+/* Other colors */
+
+@value cubes: rgba(255, 255, 255, 0.3);
+@value fillRoads: #00a1a7;
+@value arrowsCarousel:  rgba(0, 0, 0, 0.3);
+@value contactIcon: #262f38;

@@ -1,3 +1,6 @@
+@value colors: "../../shared/variables.css";
+@value red, white, blue, navPanelBg from colors;
+
 .desk {
 	display: flex;
 	align-items: center;
@@ -6,8 +9,8 @@
 	bottom: 0;
 	height: 50px;
 	width: 100%;
-	background: #1b242f;
-	border-bottom: 3px solid #04c2c9;
+	background: navPanelBg;
+	border-bottom: 3px solid blue;
 	z-index: 1;
 }
 
@@ -34,7 +37,7 @@
 }
 
 .active {
-	color: #e31b6d;
+	color: red;
 	transition: color 0.5s;
 }
 

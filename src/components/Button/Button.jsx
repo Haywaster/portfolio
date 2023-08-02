@@ -4,15 +4,19 @@ import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
 
+import formStyles from '../../sections/Contact/Contact.module.css';
 import portfolioStyles from '../../sections/Portfolio/Portfolio.module.css';
 import btnStyles from './Button.module.css';
 
-const Button = ({ children, action, category, btn, link, icon }) => {
+const Button = ({ children, action, category, btn, link, icon, type }) => {
 	let classNameBtn;
 
 	switch (category) {
 		case 'portfolio':
 			classNameBtn = portfolioStyles;
+			break;
+		case 'form':
+			classNameBtn = formStyles;
 			break;
 	}
 
@@ -27,20 +31,25 @@ const Button = ({ children, action, category, btn, link, icon }) => {
 
 	if (btn) {
 		return (
-			<div onClick={action} className={classNameBtn[btn]}>
+			<button
+				type={type === 'submit' ? 'submit' : 'button'}
+				onClick={action}
+				className={classNameBtn[btn]}
+			>
 				{icon && <FontAwesomeIcon className={btnStyles[icon.iconName]} icon={icon} />}
 				{children.toUpperCase()}
-			</div>
+			</button>
 		);
 	}
 };
 
 Button.propTypes = {
 	btn: PropTypes.string,
-	children: PropTypes.element,
+	type: PropTypes.string,
+	children: PropTypes.string,
 	action: PropTypes.func,
 	link: PropTypes.string,
-	icon: PropTypes.string,
+	icon: PropTypes.object,
 	category: PropTypes.string
 };
 

@@ -1,13 +1,16 @@
+@value colors: "../../shared/variables.css";
+@value red, white, blue, gray, portfolioBg, fillRoads from colors;
+
 /* Qualities */
 
-.Qualities {
+.qualities {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
 }
 
-.Couple {
+.couple {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -15,7 +18,7 @@
 	padding: 0 15px;
 }
 
-.BulletWrap {
+.bulletWrap {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -24,7 +27,7 @@
 	padding: 0 10px;
 }
 
-.HexWrap {
+.hexWrap {
 	display: inline-block;
 	position: relative;
 	height: 100px;
@@ -32,15 +35,15 @@
 	text-align: center;
 }
 
-.Hexagon {
+.hexagon {
 	height: 100%;
 	width: calc(100% * 0.57735);
-	background-color: #04c2c9;
+	background-color: blue;
 	display: inline-block;
 }
 
-.Hexagon:before,
-.Hexagon:after {
+.hexagon:before,
+.hexagon:after {
 	background-color: inherit;
 	content: '';
 	height: inherit;
@@ -51,15 +54,15 @@
 	width: inherit;
 }
 
-.Hexagon:after {
+.hexagon:after {
 	transform: rotateZ(-60deg);
 }
 
-.Hexagon svg {
+.hexagon svg {
 	font-size: 40pt;
 	width: 100%;
 	display: inline-block;
-	color: #fff;
+	color: white;
 	left: 0;
 	position: absolute;
 	right: 0;
@@ -67,7 +70,7 @@
 	z-index: 1;
 }
 
-.Label {
+.label {
 	margin: 20px 0 10px 0;
 	font-size: 18pt;
 	font-weight: 700;
@@ -75,7 +78,7 @@
 
 /* SkillWrapper */
 
-.SkillsWrapper {
+.skillsWrapper {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
@@ -84,24 +87,24 @@
 	width: 100%;
 }
 
-.SkillsWrapper > .Wrapper:first-child {
+.skillsWrapper > .wrapper:first-child {
 	padding: 0 50px 0 50px;
 }
 
-.SkillsWrapper .Label {
+.skillsWrapper .Label {
 	margin: 20px 0 15px 0;
 }
 
-.Wrapper {
+.wrapper {
 	max-height: 100%;
 	max-width: 50%;
 }
 
-.BarsWrap {
+.barsWrap {
 	width: calc(100% - 15px);
 }
 
-.Me {
+.me {
 	height: 250px;
 }
 
@@ -109,7 +112,7 @@ p {
 	margin: 0;
 }
 
-.Bar {
+.bar {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -118,104 +121,100 @@ p {
 	margin: 0 auto;
 	margin-bottom: 15px;
 	font-size: 11pt;
-	background-color: #eee;
-	color: #666;
+	background-color: portfolioBg;
+	color: gray;
 }
 
-.Bar:last-child {
+.bar:last-child {
 	margin-bottom: 0px;
 }
 
-.Fill {
+.fill {
 	height: inherit;
-	background-color: #00a1a7;
+	background-color: fillRoads;
 }
 
-.Bar span {
+.bar span {
 	position: absolute;
 	right: 0;
 	padding: 0 15px 0 0;
 	z-index: 1;
 }
 
-.Tag {
+.tag {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: 600;
 	width: 110px;
-	background-color: #04c2c9;
-	color: #fff;
+	background-color: blue;
+	color: white;
 	height: 100%;
 }
 
-.Highlight {
-	color: #009ada;
+.highlight {
+	color: blue;
 	cursor: pointer;
 }
 
 @media screen and (max-width: 1030px) {
-	.SkillsWrapper {
+	.skillsWrapper {
 		flex-wrap: nowrap;
 	}
 
-	.Bar span {
+	.bar span {
 		padding-right: 10px;
 	}
 }
 
 @media screen and (max-width: 930px) {
-	.Couple,
-	.SkillsWrapper {
+	.couple,
+	.skillsWrapper {
 		flex-direction: column;
 	}
 
-	.Wrapper {
+	.wrapper {
 		max-width: 90%;
 	}
 
-	.BarsWrap {
+	.barsWrap {
 		margin-top: 30px;
-	}
-
-	.SkillsWrapper > .flex:first-child {
-		padding: 0;
 	}
 }
 
 @media screen and (max-width: 820px) {
-	.Bar span {
+	.bar span {
 		padding-right: 0px;
 	}
 }
 
 @media screen and (max-width: 700px) {
-	.Me {
+	.me {
 		height: 200px;
 	}
 
-	.HexWrap {
+	.hexWrap {
 		height: 80px;
 		width: 80px;
 	}
 
-	.Hexagon svg {
+	.hexagon svg {
 		font-size: 34pt;
 	}
 
-	.Label {
+	.label {
 		font-size: 14pt;
 	}
 
-	.SkillsWrapper {
+	.skillsWrapper {
 		margin: 0;
 	}
 
-	.SkillsWrapper .Me {
+	.skillsWrapper .me {
 		height: 200px;
 	}
 
-	.Bar {
+	.bar {
 		font-size: 10pt;
 		height: 24px;
 	}

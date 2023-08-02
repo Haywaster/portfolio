@@ -1,0 +1,49 @@
+@value colors: "../../shared/variables.css";
+@value red, white, blue, gray from colors;
+
+.highlight {
+	color: blue;
+	font-weight: 600;
+}
+
+.contact {
+	display: block;
+	margin: 40px auto 0 auto;
+	width: 50%;
+}
+
+.contact input[type='text'],
+.contact input[type='email'],
+.contact textarea {
+	background: #1e242c;
+	border: 0;
+	box-sizing: border-box;
+	color: white;
+	display: block;
+	font-size: 12pt;
+	margin-bottom: 3px;
+	outline: none;
+	padding: 10px 15px;
+	width: 100%;
+}
+
+.contact textarea {
+	height: 150px;
+	margin-bottom: 5px;
+	min-height: 150px;
+}
+
+.submit {
+	composes: submitBtn from '../../components/Button/Button.module.css';
+}
+
+.contact input:-webkit-autofill,
+.contact input:-webkit-autofill:focus {
+	transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+@media screen and (max-width: 700px) {
+	.contact form {
+		width: 85%;
+	}
+}

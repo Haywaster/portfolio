@@ -1,4 +1,4 @@
-.modal-wrap {
+.modalWrap {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -31,20 +31,20 @@
 	text-align: left;
 }
 
-.modal-wrap .info-box {
+.infoBox {
 	padding: 35px 60px 90px 25px;
 	border-top: 3px solid #1b242f;
 	box-sizing: border-box;
 	color: #444;
 }
 
-.modal-wrap .title {
+.title {
 	font-size: 22pt;
 	line-height: 30pt;
 	font-weight: 700;
 }
 
-.modal-wrap .tag {
+.tag {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	color: #c0c0c0;
 	display: block;
@@ -53,13 +53,13 @@
 	padding-bottom: 15px;
 }
 
-.modal-wrap .detail {
+.detail {
 	font-size: 11pt;
 	line-height: 18pt;
 	margin-top: 15px;
 }
 
-.modal-wrap .mdi-close {
+.close {
 	bottom: 25px;
 	color: #bbb;
 	cursor: pointer;
@@ -69,7 +69,7 @@
 	right: 25px;
 }
 
-.modal-body {
+.modalBody {
 	overflow: hidden;
 }
 
@@ -91,7 +91,7 @@
 		width: 85%;
 	}
 
-	.modal-wrap .detail {
+	.detail {
 		line-height: 12pt;
 	}
 }

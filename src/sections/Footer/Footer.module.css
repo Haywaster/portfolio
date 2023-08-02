@@ -1,0 +1,94 @@
+@value colors: "../../shared/variables.css";
+@value footerBg, contactIcon, red, white, cubes from colors;
+
+.footer {
+	background: footerBg;
+	padding: 70px 0 50px 0;
+	position: relative;
+}
+
+.iconWrap {
+	display: flex;
+	justify-content: center;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: contactIcon;
+	cursor: pointer;
+	font-size: 18pt;
+	height: 55px;
+	margin: 0 15px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+	width: 55px;
+}
+
+.icon:hover {
+	background: #04c2c9;
+	box-shadow: 0 0 0 3px rgb(4 94 201 / 10%);
+	transform: scale(0.9);
+}
+
+.icon img {
+	scale: 0.06;
+	filter: invert(1);
+}
+
+.pageLink {
+	background: red;
+	color: white;
+	cursor: pointer;
+	font-size: 30pt;
+	height: 50px;
+	left: 0;
+	line-height: 40pt;
+	margin: 0 auto;
+	position: absolute;
+	right: 0;
+	top: -25px;
+	transition: background 0.5s;
+	width: 47px;
+	transition: all 0.15s ease-in-out;
+}
+
+.pageLink path {
+	transition: all 0.15s ease-in;
+}
+
+.pageLink:hover {
+	scale: 0.95;
+	border-radius: 10%;
+}
+
+.pageLink:hover path {
+	animation: bounce 1s;
+}
+
+.footnote {
+	color: cubes;
+	font-size: 10pt;
+	margin-top: 35px;
+	opacity: 0.6;
+}
+
+@keyframes bounce {
+	0%,
+	50%,
+	100% {
+		transform: scale(1, 1) translateY(0);
+	}
+	10% {
+		transform: scale(1, 0.9) translateY(0);
+	}
+	30% {
+		transform: scale(1, 1.1) translateY(-10px);
+	}
+	64% {
+		transform: scale(1, 1) translateY(-2.5px);
+	}
+}

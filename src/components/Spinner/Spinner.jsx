@@ -1,14 +1,14 @@
 import React from 'react';
-import './Spinner.css';
+import styles from './Spinner.module.css';
 
 const Spinner = () => {
-    return (
-        <div className="cssload-loader">
-            <div className="cssload-inner cssload-one"></div>
-            <div className="cssload-inner cssload-two"></div>
-            <div className="cssload-inner cssload-three"></div>
-        </div>
-    )
-}
+	return (
+		<div className={styles.cssloadLoader}>
+			<div className={styles.cssloadOne}></div>
+			<div className={styles.cssloadTwo}></div>
+			<div className={styles.cssloadThree}></div>
+		</div>
+	);
+};
 
 export default Spinner;

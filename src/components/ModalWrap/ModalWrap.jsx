@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useRef } from 'react';
 
-import './ModalWrap.css';
+import styles from './ModalWrap.module.css';
 
 let scrollCount = 0;
 
@@ -49,9 +49,9 @@ const ModalWrap = ({ modal, success, loading, error, onClose, children }) => {
 	return (
 		<AnimatePresence initial={false}>
 			{success || error || modal || loading ? (
-				<motion.div className='modal-wrap'>
+				<motion.div className={styles.modalWrap}>
 					<motion.div
-						className='mask'
+						className={styles.mask}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
@@ -61,14 +61,14 @@ const ModalWrap = ({ modal, success, loading, error, onClose, children }) => {
 					<motion.div
 						ref={ref}
 						key={modal}
-						className={success || error || loading ? 'modal notification' : 'modal'}
+						className={success || error || loading ? styles.notification : styles.modal}
 						initial={{ scale: 0.7, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
 						exit={{ scale: 0.7, opacity: 0 }}
 						transition={{ duration: 0.3 }}
 					>
 						{children}
-						{!loading && <Icon onClick={onClose} className='mdi mdi-close' icon='mdi:close' />}
+						{!loading && <Icon onClick={onClose} className={styles.close} icon='mdi:close' />}
 					</motion.div>
 				</motion.div>
 			) : null}

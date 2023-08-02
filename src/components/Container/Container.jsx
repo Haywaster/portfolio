@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
 
-import './Container.css';
+import styles from './Container.module.css';
 
 const Container = ({ children, id, direction }) => {
 	return (
-		<section id={id}>
+		<section id={id} className={styles[id]}>
 			{id === 'contact' && (
 				<svg
 					preserveAspectRatio='none'
@@ -14,20 +14,19 @@ const Container = ({ children, id, direction }) => {
 					width='100%'
 					version='1.1'
 					xmlns='http://www.w3.org/2000/svg'
-					className='svgcolor-light'
 				>
 					<path d='M0 0 L50 100 L100 0 Z' fill='#f5f5f5' stroke='#f5f5f5'></path>
 				</svg>
 			)}
-			<div className='container'>
-				<div data-aos={`fade-${direction}`} data-aos-duration='1000' className='header'>
+			<div className={styles.container}>
+				<div data-aos={`fade-${direction}`} data-aos-duration='1000' className={styles.header}>
 					{id.toUpperCase()}
 				</div>
 				<div
 					data-aos={`fade-${direction}`}
 					data-aos-duration='1000'
 					data-aos-delay='300'
-					className='header-bar'
+					className={styles.headerBar}
 				></div>
 				{children}
 			</div>

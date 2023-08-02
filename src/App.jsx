@@ -18,7 +18,7 @@ import Portfolio from './sections/Portfolio';
 const App = () => {
 	const [cards, setCards] = useState(projects);
 	const [activeModal, setActiveModal] = useState('');
-	const [success, setSucces] = useState(false);
+	const [success, setSuccess] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 
@@ -33,7 +33,7 @@ const App = () => {
 
 	const setClose = useCallback(() => {
 		setActiveModal('');
-		setSucces(false);
+		setSuccess(false);
 		setError(false);
 	}, [activeModal, success, error]);
 
@@ -101,7 +101,7 @@ const App = () => {
 
 			<Container id='contact' direction='right'>
 				<Contact
-					setSucces={setSucces}
+					setSuccess={setSuccess}
 					setError={setError}
 					loading={loading}
 					setLoading={setLoading}

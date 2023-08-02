@@ -1,4 +1,7 @@
-/* Инфо */
+@value colors: "../../shared/variables.css";
+@value red, homeBg, cubes from colors;
+
+/* Info */
 
 .context {
 	display: flex;
@@ -10,7 +13,6 @@
 }
 
 .text {
-	margin: 0 0 20px 0;
 	user-select: none;
 	font-size: 34pt;
 	line-height: 36pt;
@@ -18,15 +20,15 @@
 }
 
 .highlight {
-	color: #dc196b;
+	color: red;
 	cursor: default;
-	font-weight: 600;
+	font-weight: 700;
 }
 
-/* Задний фон с кубиками */
+/* Background with cubes */
 
 .area {
-	background: -webkit-linear-gradient(270deg, #313259, #252641);
+	background: homeBg;
 	width: 100%;
 	height: 100%;
 }
@@ -48,7 +50,7 @@
 	list-style: none;
 	width: 20px;
 	height: 20px;
-	background: rgba(255, 255, 255, 0.3);
+	background: cubes;
 	animation: animate 25s linear infinite;
 	bottom: -150px;
 }

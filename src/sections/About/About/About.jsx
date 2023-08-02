@@ -1,21 +1,21 @@
 import React from 'react';
 
 import Qualities from '../Qualities/Qualities';
-import WhoIAm from '../WhoIAm/WhoIAm';
 import Skills from '../Skills/Skills';
+import WhoIAm from '../WhoIAm/WhoIAm';
 
-import styles from '../styles.module.css';
+import styles from '../About.module.css';
 
 const About = () => {
-  return (
-    <>
-      <Qualities />
-      <div className={styles.SkillsWrapper}>
-        <WhoIAm direction='right' />
-        <Skills />
-      </div>
-    </>
-  );
+	return (
+		<>
+			<Qualities />
+			<div className={styles.skillsWrapper}>
+				<WhoIAm direction='right' />
+				<Skills />
+			</div>
+		</>
+	);
 };
 
 export default About;

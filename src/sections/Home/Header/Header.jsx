@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../components/Button';
-import styles from './Header.module.css';
+import Button from '../../../components/Button';
+import styles from '../Home.module.css';
 
 const Header = () => {
 	return (

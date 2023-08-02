@@ -1,8 +1,10 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import Header from '../Header';
 import NavPanel from '../NavPanel';
+import Header from './Header';
+
+import styles from '../../components/Container/Container.module.css';
 
 const Home = () => {
 	const [fixPanel, setFixPanel] = useState(false);
@@ -20,7 +22,7 @@ const Home = () => {
 	}, [activeSection, entry]);
 
 	return (
-		<section ref={ref} id='home'>
+		<section ref={ref} id='home' className={styles.home}>
 			<Header />
 			<NavPanel fixPanel={fixPanel} setActiveSection={setActiveSection} />
 		</section>
