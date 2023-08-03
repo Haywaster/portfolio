@@ -1,2 +1,1 @@
-import Portfolio from "./Portfolio";
-export default Portfolio;
+export { default as Portfolio } from './ui/Portfolio';

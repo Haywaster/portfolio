@@ -1,2 +1,1 @@
-import ModalWrap from "./ModalWrap";
-export default ModalWrap;
+export { default as ModalWrap } from './ui/ModalWrap';

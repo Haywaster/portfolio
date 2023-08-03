@@ -10,24 +10,24 @@ const Skills = () => {
 	const { skills } = useSelector(selectAboutData);
 	const [fillMax, setFillMax] = useState(0);
 
+	const setFilling = event => {
+		if (event.propertyName !== 'transform') return;
+
+		const interval = setInterval(() => {
+			setFillMax(prev => {
+				if (prev >= 100 - 1) {
+					clearInterval(interval);
+				}
+				return prev + 1;
+			});
+		}, 10);
+	};
+
 	const renderSkills = () => {
 		return skills.map(skill => <SkillsItem key={skill.header} fillMax={fillMax} {...skill} />);
 	};
 
 	const elements = renderSkills();
-
-	const setFilling = event => {
-		if (event.propertyName === 'transform') {
-			const filling = setInterval(() => {
-				setFillMax(prev => {
-					if (prev >= 100 - 1) {
-						clearInterval(filling);
-					}
-					return prev + 1;
-				});
-			}, 10);
-		}
-	};
 
 	return (
 		<div

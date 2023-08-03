@@ -7,7 +7,7 @@ import styles from '../../About.module.css';
 const WhoIAm = ({ direction }) => {
 	return (
 		<div data-aos={`fade-${direction}`} data-aos-duration='1000' className={styles.wrapper}>
-			<img src='/img/me.webp' className={styles.me} alt="I'm" />
+			<img src='/img/me.png' className={styles.me} alt="I'm" />
 			<div className={styles.label}>Who&apos;s this guy?</div>
 			<div>
 				<p>I&apos; m a Front-End Developer in Tomsk, Russia.</p>

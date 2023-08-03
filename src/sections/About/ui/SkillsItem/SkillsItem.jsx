@@ -10,7 +10,6 @@ const SkillsItem = ({ header, width, fillMax }) => {
 		if (width >= fillMax) {
 			setFillItem(fillMax);
 		}
-		return;
 	}, [fillMax, width]);
 
 	return (

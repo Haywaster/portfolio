@@ -1,28 +1,27 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Helmet from 'react-helmet';
 
-import Container from './components/Container';
-import ModalWrap from './components/ModalWrap';
-import Modal from './components/ModalWrap/Modal';
-import projects from './data/Projects.json';
+import { useSelector } from 'react-redux';
+import { selectContactData } from './redux/slices/contactSlice';
+import { selectProjectsData } from './redux/slices/projectsSlice';
 
-import Spinner from './components/Spinner';
+import { Container } from './components/Container';
 import { About } from './sections/About';
-import Contact from './sections/Contact';
-import Footer from './sections/Footer';
-import Home from './sections/Home';
-import Portfolio from './sections/Portfolio';
+import { Contact } from './sections/Contact';
+import { Footer } from './sections/Footer';
+import { Home } from './sections/Home';
+import { Portfolio } from './sections/Portfolio';
+
+import { ModalWrap } from './components/ModalWrap';
+import Modal from './components/ModalWrap/ui/Modal';
+import { Spinner } from './components/Spinner';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const App = () => {
-	const [cards, setCards] = useState(projects);
-	const [activeModal, setActiveModal] = useState('');
-	const [success, setSuccess] = useState(false);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(false);
-
-	const activeCard = cards.find(card => activeModal === card.name);
+	const { activeCardData } = useSelector(selectProjectsData);
+	const { statusMessage } = useSelector(selectContactData);
 
 	useEffect(() => {
 		AOS.init({
@@ -30,12 +29,6 @@ const App = () => {
 			easing: 'ease-out-back'
 		});
 	}, []);
-
-	const setClose = useCallback(() => {
-		setActiveModal('');
-		setSuccess(false);
-		setError(false);
-	}, [activeModal, success, error]);
 
 	return (
 		<>
@@ -58,29 +51,17 @@ const App = () => {
 				<meta property='og:image' content='http://vlstrashko.ru/img/me.webp'></meta>
 			</Helmet>
 
-			<ModalWrap
-				modal={activeModal}
-				success={success}
-				error={error}
-				loading={loading}
-				onClose={() => setClose()}
-			>
-				{activeModal && <Modal tabIndex='0' activeCard={activeCard} />}
-
-				{loading && (
-					<div>
-						<Spinner />
-					</div>
-				)}
-				{success && (
+			<ModalWrap>
+				{activeCardData && <Modal tabIndex='0' activeCardData={activeCardData} />}
+				{statusMessage === 'loading' && <Spinner />}
+				{statusMessage === 'success' && (
 					<>
 						Your message was sent successfully.
 						<br />
 						Thanks!
 					</>
 				)}
-
-				{error && (
+				{statusMessage === 'error' && (
 					<>
 						Your message was not delivered :(
 						<br />
@@ -96,16 +77,11 @@ const App = () => {
 			</Container>
 
 			<Container id='portfolio' direction='left'>
-				<Portfolio cards={cards} setCards={setCards} setActiveModal={setActiveModal} />
+				<Portfolio />
 			</Container>
 
 			<Container id='contact' direction='right'>
-				<Contact
-					setSuccess={setSuccess}
-					setError={setError}
-					loading={loading}
-					setLoading={setLoading}
-				/>
+				<Contact />
 			</Container>
 
 			<Footer />

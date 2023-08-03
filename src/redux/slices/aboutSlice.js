@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'https://64c9d934b2980cec85c2791e.mockapi.io/aboutData';
+const url = 'http://www.vlstrashko.ru/data/About/about.json';
 
-export const fetchAbout = createAsyncThunk('users/fetchAbout', async () => {
+export const fetchAbout = createAsyncThunk('about/fetchAbout', async () => {
 	const { data } = await axios(url);
 	return data;
 });
@@ -17,14 +17,14 @@ const initialState = {
 export const aboutSlice = createSlice({
 	name: 'about',
 	initialState,
-	reducers: {},
 	extraReducers: {
-		[fetchAbout.fulfilled]: state => {
+		[fetchAbout.pending]: state => {
 			state.process = 'loading';
 		},
 		[fetchAbout.fulfilled]: (state, action) => {
 			state.process = 'success';
-			const data = action.payload[0];
+
+			const data = action.payload;
 			state.skills = data.skills;
 			state.qualities = data.qualities;
 		},

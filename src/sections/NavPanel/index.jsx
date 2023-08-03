@@ -1,2 +1,2 @@
-import NavPanel from "./NavPanel";
+import NavPanel from './ui/NavPanel';
 export default NavPanel;
