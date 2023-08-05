@@ -53,12 +53,14 @@
 	}
 }
 
-@media screen and (max-width: 700px) {
-	.link-wrap {
+@media screen and (max-width: 800px) {
+	.linkWrap {
 		width: auto;
+		text-align: center;
 	}
 
-	.link-wrap > a {
+	.linkWrap > a {
 		margin: 0 10px;
+		font-size: inherit;
 	}
 }

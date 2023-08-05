@@ -218,4 +218,8 @@ p {
 	.bulletWrap {
 		height: 180px;
 	}
+	.tag {
+		font-size: 7pt;
+		width: 130px;
+	}
 }
