@@ -7,7 +7,6 @@ import styles from '../Portfolio.module.css';
 import { switchFilterAnimation } from '../model/const';
 
 const Project = forwardRef(({ name, preview, filter }, ref) => {
-	console.log(name);
 	const { setActiveCardData } = useActions();
 
 	const activeCardHandler = useCallback(() => setActiveCardData(name), []);

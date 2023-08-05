@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { selectProjectsData } from '../../../redux/slices/projectsSlice';
 import styles from '../Portfolio.module.css';
+import { switchFilterAnimation } from '../model/const';
 import Project from './Project';
 
 const Gallery = () => {

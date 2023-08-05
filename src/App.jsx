@@ -80,8 +80,8 @@ const App = () => {
 
 			<Home />
 
-			{containers?.map(item => (
-				<Container key={item} id={item} />
+			{containers?.map((item, index) => (
+				<Container key={item} id={item} direction={(index + 1) % 2 ? 'right' : 'left'} />
 			))}
 
 			<Footer />
