@@ -11,7 +11,7 @@ const Qualities = () => {
 
 	return (
 		<div className={styles.qualities}>
-			{qualities.map((elem, i) => (
+			{qualities?.map((elem, i) => (
 				<QualitiesItem key={elem.header} num={i + 1} {...elem} />
 			))}
 		</div>

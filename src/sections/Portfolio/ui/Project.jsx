@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
-import React, { forwardRef, memo } from 'react';
-
-import { useDispatch } from 'react-redux';
-import { setActiveCardData } from '../../../redux/slices/projectsSlice';
+import React, { forwardRef, memo, useCallback } from 'react';
 
 import { motion } from 'framer-motion';
 
 import { Button } from '../../../components/Button';
 
+import { useActions } from '../../../shared/lib/hooks/useActions';
 import styles from '../Portfolio.module.css';
 
 const Project = forwardRef(({ name, preview, filter }, ref) => {
-	const dispatch = useDispatch();
+	console.log(name);
+	const { setActiveCardData } = useActions();
+
+	const activeCardHandler = useCallback(() => setActiveCardData(name), []);
 
 	return (
 		<motion.div ref={ref} className={styles.mix}>
@@ -24,7 +25,7 @@ const Project = forwardRef(({ name, preview, filter }, ref) => {
 				<div className={styles.bold}>{name}</div>
 				<span className={styles.highlight}>{filter}</span>
 			</div>
-			<Button category='portfolio' btn='mixBtn' action={() => dispatch(setActiveCardData(name))}>
+			<Button category='portfolio' btn='mixBtn' action={activeCardHandler}>
 				Learn more
 			</Button>
 		</motion.div>

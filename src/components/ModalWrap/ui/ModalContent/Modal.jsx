@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '../../Button';
-import { Carousel } from '../../Carousel';
+import { Button } from '../../../Button';
+import { Carousel } from '../../../Carousel';
 
-import styles from '../ModalWrap.module.css';
+import styles from '../../ModalWrap.module.css';
 
 const Modal = ({ activeCardData }) => {
 	const { name, filter, images, brief, desc, url } = activeCardData;

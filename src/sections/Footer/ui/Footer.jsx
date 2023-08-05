@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 
-import { fetchContacts, selectContactData } from '../../../redux/slices/contactSlice';
+import { selectContactData } from '../../../redux/slices/contactSlice';
 import styles from '../Footer.module.css';
 
 const vkStyle = { scale: '1.3' };
@@ -16,15 +16,10 @@ const Qwerty = {
 
 const Footer = () => {
 	const { socialMediaData } = useSelector(selectContactData);
-	const dispatch = useDispatch();
 	const [isHovered, setHovered] = useState(false);
 
-	useEffect(() => {
-		dispatch(fetchContacts());
-	}, []);
-
 	const renderSocial = () => {
-		return socialMediaData.map(el => (
+		return socialMediaData?.map(el => (
 			<a key={el.name} href={el.url} rel='noreferrer' target='_blank'>
 				<motion.div
 					onMouseEnter={() => setHovered(el.name)}

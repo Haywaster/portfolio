@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '../../../../components/Button';
@@ -26,4 +26,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default memo(Header);

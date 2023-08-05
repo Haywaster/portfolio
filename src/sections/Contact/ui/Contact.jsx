@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Form from './Form';
 
@@ -20,4 +20,4 @@ const Contact = () => {
 	);
 };
 
-export default Contact;
+export default memo(Contact);

@@ -93,11 +93,13 @@
 	top: 25px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
 	.modal {
 		width: 85%;
 	}
+}
 
+@media screen and (max-width: 500px) {
 	.detail {
 		line-height: 12pt;
 	}

@@ -3,25 +3,26 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 
 import { Icon } from '@iconify/react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContactData, setStatusMessage } from '../../../redux/slices/contactSlice';
-import { selectProjectsData, setActiveCardData } from '../../../redux/slices/projectsSlice';
-import { countScroll, scrollCount } from '../../../shared/lib/utils/countScroll';
-import styles from '../ModalWrap.module.css';
+import { useSelector } from 'react-redux';
+import { selectContactData } from '../../../../redux/slices/contactSlice';
+import { selectProjectsData } from '../../../../redux/slices/projectsSlice';
+import { useActions } from '../../../../shared/lib/hooks/useActions';
+import { countScroll, scrollCount } from '../../../../shared/lib/utils/countScroll';
+import styles from '../../ModalWrap.module.css';
 
 const ModalWrap = ({ children }) => {
 	const { activeCardData } = useSelector(selectProjectsData);
 	const { statusMessage } = useSelector(selectContactData);
-	const dispatch = useDispatch();
+	const { setActiveCardData, setStatusMessage } = useActions();
 
 	const modalRef = useRef(null);
 
 	const onClose = () => {
 		if (activeCardData) {
-			dispatch(setActiveCardData(null));
+			setActiveCardData(null);
 		}
 		if (statusMessage) {
-			dispatch(setStatusMessage('idle'));
+			setStatusMessage('idle');
 		}
 	};
 

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'http://www.vlstrashko.ru/data/Portfolio/portfolio.json';
+const url = 'https://run.mocky.io/v3/d4a6d6cc-e7c1-4e09-b406-9a369a0d3bd9';
 
-export const fetchPortfolio = createAsyncThunk('projects/fetchPortfolio', async () => {
+export const fetchPortfolio = createAsyncThunk('projects/fetchPortfolioData', async () => {
 	const { data } = await axios(url);
 	return data;
 });

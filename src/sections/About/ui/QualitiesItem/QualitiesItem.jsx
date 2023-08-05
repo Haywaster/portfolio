@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 
 import styles from '../../About.module.css';
 
@@ -27,4 +27,4 @@ QualitiesItem.propTypes = {
 	num: PropTypes.number
 };
 
-export default QualitiesItem;
+export default memo(QualitiesItem);

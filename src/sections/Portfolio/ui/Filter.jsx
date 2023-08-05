@@ -1,52 +1,36 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
+import { useActions } from '../../../shared/lib/hooks/useActions';
 
-import { useDispatch, useSelector } from 'react-redux';
-import {
-	selectProjectsData,
-	setActiveFilter,
-	setActiveFilterSizes
-} from '../../../redux/slices/projectsSlice';
 import styles from '../Portfolio.module.css';
 
 const Filter = ({ name }) => {
-	const { activeFilter } = useSelector(selectProjectsData);
-	const dispatch = useDispatch();
-
-	const filterRef = useRef();
-
-	let activeClass = name === activeFilter ? 'active' : '';
-	let classNames = [styles.filter, activeClass];
+	const { setActiveFilterSizes, setActiveFilter } = useActions();
 
 	useEffect(() => {
 		if (name === 'ALL') {
-			dispatch(setActiveFilterSizes([filterRef.current.offsetWidth, 'width']));
-			dispatch(setActiveFilterSizes([filterRef.current.offsetLeft, 'left']));
+			setActiveFilterSizes([filterRef.current.offsetWidth, 'width']);
+			setActiveFilterSizes([filterRef.current.offsetLeft, 'left']);
 		}
 	}, []);
 
 	const switchActiveFilter = (e, name) => {
-		dispatch(setActiveFilter(name));
-		dispatch(setActiveFilterSizes([e.target.offsetWidth, 'width']));
-		dispatch(setActiveFilterSizes([e.target.offsetLeft, 'left']));
+		setActiveFilter(name);
+		setActiveFilterSizes([e.target.offsetWidth, 'width']);
+		setActiveFilterSizes([e.target.offsetLeft, 'left']);
 	};
 
+	const filterRef = useRef();
 	return (
-		<div
-			ref={filterRef}
-			onClick={e => switchActiveFilter(e, name)}
-			className={classNames.join(' ')}
-		>
+		<div ref={filterRef} onClick={e => switchActiveFilter(e, name)} className={styles.filter}>
 			{name}
 		</div>
 	);
 };
 
-export default Filter;
+export default memo(Filter);
 
 Filter.propTypes = {
 	name: PropTypes.string,
-	setWidth: PropTypes.func,
-	setLeft: PropTypes.func,
-	setCards: PropTypes.func
+	switchActiveFilter: PropTypes.func
 };

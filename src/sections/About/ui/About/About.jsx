@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchAbout } from '../../../../redux/slices/aboutSlice';
+import React, { memo } from 'react';
 
 import Qualities from '../Qualities/Qualities';
 import Skills from '../Skills/Skills';
@@ -9,12 +7,6 @@ import WhoIAm from '../WhoIAm/WhoIAm';
 import styles from '../../About.module.css';
 
 const About = () => {
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(fetchAbout());
-	}, []);
-
 	return (
 		<>
 			<Qualities />
@@ -26,4 +18,4 @@ const About = () => {
 	);
 };
 
-export default About;
+export default memo(About);

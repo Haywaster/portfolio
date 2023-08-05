@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'http://www.vlstrashko.ru/data/Sections/sections.json';
+const url = 'https://run.mocky.io/v3/82cf75cf-3c63-4ff5-84b6-de6d01d3894e';
 
-export const fetchSections = createAsyncThunk('sections/fetchSections', async () => {
+export const fetchSections = createAsyncThunk('sections/fetchSectionsData', async () => {
 	const { data } = await axios(url);
 	return data;
 });

@@ -9,11 +9,13 @@ const Filters = () => {
 	const { filters } = useSelector(selectProjectsData);
 
 	return (
-		<div className={styles.filtersRow}>
-			{filters.map(filter => (
-				<Filter key={filter} name={filter.toUpperCase()} />
-			))}
-		</div>
+		<>
+			<div className={styles.filtersRow}>
+				{filters.map(filter => (
+					<Filter key={filter} name={filter.toUpperCase()} />
+				))}
+			</div>
+		</>
 	);
 };
 

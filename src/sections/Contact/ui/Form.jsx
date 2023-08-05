@@ -1,21 +1,19 @@
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { sendMessage } from '../../../redux/slices/contactSlice';
 
 import { Button } from '../../../components/Button';
 
+import { useActions } from '../../../shared/lib/hooks/useActions';
 import styles from '../Contact.module.css';
 
 const Form = () => {
 	const formRef = useRef(null);
-	const dispatch = useDispatch();
+	const { sendMessage } = useActions();
 
 	const sendEmail = e => {
 		e.preventDefault();
 
-		dispatch(sendMessage(formRef.current));
+		sendMessage(formRef.current);
 
 		e.target.reset();
 	};

@@ -22,16 +22,15 @@ const Button = ({ children, action, category, btn, link, icon, type }) => {
 			break;
 	}
 
-	if (link) {
+	if (link)
 		return (
 			<Link className={btnStyles[link]} to='about' smooth={true} offset={-53} duration={300}>
 				{icon && <FontAwesomeIcon className={btnStyles[icon.iconName]} icon={icon} />}
 				View my work
 			</Link>
 		);
-	}
 
-	if (btn) {
+	if (btn)
 		return (
 			<button
 				type={type === 'submit' ? 'submit' : 'button'}
@@ -42,7 +41,6 @@ const Button = ({ children, action, category, btn, link, icon, type }) => {
 				{children.toUpperCase()}
 			</button>
 		);
-	}
 };
 
 Button.propTypes = {

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-scroll';
 
 import { useSelector } from 'react-redux';
@@ -8,22 +8,16 @@ import styles from '../NavPanel.module.css';
 
 const NavPanel = ({ fixPanel }) => {
 	const { sections } = useSelector(selectSectionsData);
-	// const dispatch = useDispatch();
 
 	const fixedNavPanel = fixPanel ? styles.fixed : '';
 	const classNames = [styles.desk, fixedNavPanel];
 
-	// const onActiveSection = to => {
-	// 	dispatch(setActiveSection(to));
-	// };
-
 	const renderNavPanel = () =>
-		sections.map(section => (
+		sections?.map(section => (
 			<Link
 				key={section}
 				className={styles.link}
 				activeClass={styles.active}
-				// onSetActive={onActiveSection}
 				to={section}
 				spy={true}
 				smooth={true}
@@ -47,4 +41,4 @@ NavPanel.propTypes = {
 	fixPanel: PropTypes.bool
 };
 
-export default NavPanel;
+export default memo(NavPanel);

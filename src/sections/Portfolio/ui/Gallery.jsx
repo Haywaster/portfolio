@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 
 import { useSelector } from 'react-redux';
 import { selectProjectsData } from '../../../redux/slices/projectsSlice';
@@ -9,11 +9,12 @@ import { switchFilterAnimation } from '../model/const';
 import { MProject } from './Project';
 
 const Gallery = () => {
+	console.log('123');
 	const galleryRef = useRef(null);
 	const { filteredProjects } = useSelector(selectProjectsData);
 
 	const renderProjects = () => {
-		return filteredProjects.map((item, i) => (
+		return filteredProjects?.map((item, i) => (
 			<MProject
 				key={item.name}
 				layout
@@ -25,7 +26,7 @@ const Gallery = () => {
 	};
 
 	const renderFilteredProjects = () => {
-		return filteredProjects.map(item => (
+		return filteredProjects?.map(item => (
 			<MProject
 				key={item.name}
 				layout
@@ -63,4 +64,4 @@ Gallery.propTypes = {
 	setActiveModal: PropTypes.func
 };
 
-export default Gallery;
+export default memo(Gallery);

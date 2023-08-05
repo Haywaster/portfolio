@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 
 import styles from '../Container.module.css';
 
-const Container = ({ children, id, direction }) => {
+import { About } from '../../../sections/About';
+import { Contact } from '../../../sections/Contact';
+import { Portfolio } from '../../../sections/Portfolio';
+
+const Container = ({ id, direction }) => {
 	return (
 		<section id={id} className={styles[id]}>
 			{id === 'contact' && (
@@ -29,16 +33,17 @@ const Container = ({ children, id, direction }) => {
 					data-aos-delay='300'
 					className={styles.headerBar}
 				></div>
-				{children}
+				{id === 'about' && <About />}
+				{id === 'portfolio' && <Portfolio />}
+				{id === 'contact' && <Contact />}
 			</div>
 		</section>
 	);
 };
 
 Container.propTypes = {
-	children: PropTypes.element.isRequired,
 	id: PropTypes.string,
 	direction: PropTypes.string
 };
 
-export default Container;
+export default memo(Container);

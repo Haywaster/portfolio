@@ -23,12 +23,6 @@ const Skills = () => {
 		}, 10);
 	};
 
-	const renderSkills = () => {
-		return skills.map(skill => <SkillsItem key={skill.header} fillMax={fillMax} {...skill} />);
-	};
-
-	const elements = renderSkills();
-
 	return (
 		<div
 			onTransitionEnd={setFilling}
@@ -36,7 +30,9 @@ const Skills = () => {
 			data-aos-duration='1000'
 			className={styles.barsWrap}
 		>
-			{elements}
+			{skills?.map(skill => (
+				<SkillsItem key={skill.header} fillMax={fillMax} {...skill} />
+			))}
 		</div>
 	);
 };

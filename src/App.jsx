@@ -1,33 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Helmet from 'react-helmet';
 
 import { useSelector } from 'react-redux';
 import { selectContactData } from './redux/slices/contactSlice';
 import { selectProjectsData } from './redux/slices/projectsSlice';
+import { selectSectionsData } from './redux/slices/sectionsSlice';
 
 import { Container } from './components/Container';
-import { About } from './sections/About';
-import { Contact } from './sections/Contact';
-import { Footer } from './sections/Footer';
 import { Home } from './sections/Home';
-import { Portfolio } from './sections/Portfolio';
 
 import { ModalWrap } from './components/ModalWrap';
-import Modal from './components/ModalWrap/ui/Modal';
+import Modal from './components/ModalWrap/ui/ModalContent/Modal';
 import { Spinner } from './components/Spinner';
 
-import AOS from 'aos';
+import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { useActions } from './shared/lib/hooks/useActions';
 
 const App = () => {
 	const { activeCardData } = useSelector(selectProjectsData);
 	const { statusMessage } = useSelector(selectContactData);
+	const { sections } = useSelector(selectSectionsData);
+	const { fetchSections, fetchAbout, fetchPortfolio, fetchContacts } = useActions();
+
+	const containers = useMemo(() => sections?.slice(1), [sections]);
 
 	useEffect(() => {
-		AOS.init({
+		Aos.init({
 			once: true,
 			easing: 'ease-out-back'
 		});
+
+		fetchSections();
+		fetchAbout();
+		fetchPortfolio();
+		// fetchContacts();
 	}, []);
 
 	return (
@@ -72,19 +79,11 @@ const App = () => {
 
 			<Home />
 
-			<Container id='about' direction='right'>
-				<About />
-			</Container>
+			{containers?.map(item => (
+				<Container key={item} id={item} />
+			))}
 
-			<Container id='portfolio' direction='left'>
-				<Portfolio />
-			</Container>
-
-			<Container id='contact' direction='right'>
-				<Contact />
-			</Container>
-
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };
