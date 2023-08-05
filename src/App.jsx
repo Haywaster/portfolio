@@ -7,6 +7,7 @@ import { selectProjectsData } from './redux/slices/projectsSlice';
 import { selectSectionsData } from './redux/slices/sectionsSlice';
 
 import { Container } from './components/Container';
+import { Footer } from './sections/Footer';
 import { Home } from './sections/Home';
 
 import { ModalWrap } from './components/ModalWrap';
@@ -34,7 +35,7 @@ const App = () => {
 		fetchSections();
 		fetchAbout();
 		fetchPortfolio();
-		// fetchContacts();
+		fetchContacts();
 	}, []);
 
 	return (
@@ -83,7 +84,7 @@ const App = () => {
 				<Container key={item} id={item} />
 			))}
 
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 };

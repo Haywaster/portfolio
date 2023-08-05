@@ -1,12 +1,10 @@
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { forwardRef, memo, useCallback } from 'react';
-
-import { motion } from 'framer-motion';
-
 import { Button } from '../../../components/Button';
-
 import { useActions } from '../../../shared/lib/hooks/useActions';
 import styles from '../Portfolio.module.css';
+import { switchFilterAnimation } from '../model/const';
 
 const Project = forwardRef(({ name, preview, filter }, ref) => {
 	console.log(name);
@@ -15,7 +13,17 @@ const Project = forwardRef(({ name, preview, filter }, ref) => {
 	const activeCardHandler = useCallback(() => setActiveCardData(name), []);
 
 	return (
-		<motion.div ref={ref} className={styles.mix}>
+		<motion.div
+			ref={ref}
+			layout
+			variants={switchFilterAnimation}
+			transition={{ type: 'spring', stiffness: 150, damping: 20 }}
+			initial='start'
+			whileInView='jump'
+			animate='middle'
+			exit='finally'
+			className={styles.mix}
+		>
 			<img
 				className={styles.card}
 				src={`/img/preview/${filter.toLowerCase()}/${preview}`}
@@ -41,4 +49,4 @@ Project.propTypes = {
 	setActiveModal: PropTypes.func
 };
 
-export const MProject = memo(motion(Project));
+export default memo(Project);
