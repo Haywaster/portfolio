@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 import { useSelector } from 'react-redux';
 import { selectContactData } from './redux/slices/contactSlice';
-import { selectProjectsData } from './redux/slices/projectsSlice';
+import { selectPortfolioData } from './redux/slices/portfolioSlice';
 import { selectSectionsData } from './redux/slices/sectionsSlice';
 
 import { Container } from './components/Container';
@@ -16,28 +16,49 @@ import { Spinner } from './components/Spinner';
 
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { selectData } from './redux/slices/dataSlice';
 import { useActions } from './shared/lib/hooks/useActions';
 
 const App = () => {
-	const { activeCardData } = useSelector(selectProjectsData);
-	const { statusMessage } = useSelector(selectContactData);
-	const { sections } = useSelector(selectSectionsData);
-	const { fetchSections, fetchAbout, fetchPortfolio, fetchContacts } = useActions();
-
-	const containers = useMemo(() => sections?.slice(1), [sections]);
+	const { process, languageData, language } = useSelector(selectData);
+	const { fetchData, setAbout, setSections, setPortfolio, setContacts } = useActions();
 
 	useEffect(() => {
 		Aos.init({
 			once: true,
 			easing: 'ease-out-back'
 		});
-
-		fetchSections();
-		fetchAbout();
-		fetchPortfolio();
-		fetchContacts();
+		fetchData();
 	}, []);
 
+	useEffect(() => {
+		if (languageData) {
+			setSections(languageData.sections);
+			setAbout(languageData.about);
+			setPortfolio(languageData.portfolio);
+			setContacts(languageData.contact);
+		}
+	}, [process, language]);
+
+	return (
+		<>
+			{process === 'loading' && (
+				<div className='spinnerWrap'>
+					<Spinner />
+					<p style={{ alignContent: 'start' }}>Пожалуйста, ожидайте. Страница загружается</p>
+				</div>
+			)}
+			{process === 'success' && <Resource />}
+		</>
+	);
+};
+
+const Resource = () => {
+	const { sections } = useSelector(selectSectionsData);
+	const { activeCardData } = useSelector(selectPortfolioData);
+	const { statusMessage } = useSelector(selectContactData);
+
+	const containers = useMemo(() => sections.slice(1), [sections]);
 	return (
 		<>
 			<Helmet>
@@ -80,8 +101,13 @@ const App = () => {
 
 			<Home />
 
-			{containers?.map((item, index) => (
-				<Container key={item} id={item} direction={(index + 1) % 2 ? 'right' : 'left'} />
+			{containers.map((item, index) => (
+				<Container
+					key={item.id}
+					id={item.id}
+					name={item.name}
+					direction={(index + 1) % 2 ? 'right' : 'left'}
+				/>
 			))}
 
 			<Footer />

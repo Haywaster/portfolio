@@ -6,7 +6,7 @@ import { useActions } from '../../../shared/lib/hooks/useActions';
 import styles from '../Portfolio.module.css';
 import { switchFilterAnimation } from '../model/const';
 
-const Project = forwardRef(({ name, preview, filter }, ref) => {
+const Project = forwardRef(({ name, preview, filter, openCartBtn }, ref) => {
 	const { setActiveCardData } = useActions();
 
 	const activeCardHandler = useCallback(() => setActiveCardData(name), []);
@@ -33,7 +33,7 @@ const Project = forwardRef(({ name, preview, filter }, ref) => {
 				<span className={styles.highlight}>{filter}</span>
 			</div>
 			<Button category='portfolio' btn='mixBtn' action={activeCardHandler}>
-				Learn more
+				{openCartBtn}
 			</Button>
 		</motion.div>
 	);
@@ -45,6 +45,7 @@ Project.propTypes = {
 	name: PropTypes.string,
 	preview: PropTypes.string,
 	filter: PropTypes.string,
+	openCartBtn: PropTypes.string,
 	setActiveModal: PropTypes.func
 };
 

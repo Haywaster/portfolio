@@ -1,10 +1,15 @@
 import React, { memo } from 'react';
 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 import { Button } from '../../../../components/Button';
+import { selectData } from '../../../../redux/slices/dataSlice';
 import styles from '../../Home.module.css';
 
 const Header = () => {
+	const { languageData } = useSelector(selectData);
+	const { greetings, name, whoAreYou, link } = languageData.home;
+
 	return (
 		<>
 			<div className={styles.area}>
@@ -16,11 +21,11 @@ const Header = () => {
 			</div>
 			<div className={styles.context}>
 				<h1 className={styles.text}>
-					Hello, I&apos;m <span className={styles.highlight}>Vladimir Strashko</span>.
+					{greetings} <span className={styles.highlight}>{name}</span>.
 					<br />
-					I&apos;m a frontend developer.
+					{whoAreYou}
 				</h1>
-				<Button link='welcomeLink' icon={faArrowRight} />
+				<Button link='welcomeLink' linkText={link} icon={faArrowRight} />
 			</div>
 		</>
 	);

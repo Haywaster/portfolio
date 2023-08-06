@@ -7,7 +7,7 @@ import { About } from '../../../sections/About';
 import { Contact } from '../../../sections/Contact';
 import { Portfolio } from '../../../sections/Portfolio';
 
-const Container = ({ id, direction }) => {
+const Container = ({ id, name, direction }) => {
 	return (
 		<section id={id} className={styles[id]}>
 			{id === 'contact' && (
@@ -25,7 +25,7 @@ const Container = ({ id, direction }) => {
 
 			<div className={styles.container}>
 				<div data-aos={`fade-${direction}`} data-aos-duration='1000' className={styles.header}>
-					{id.toUpperCase()}
+					{name.toUpperCase()}
 				</div>
 				<div
 					data-aos={`fade-${direction}`}
@@ -43,6 +43,7 @@ const Container = ({ id, direction }) => {
 
 Container.propTypes = {
 	id: PropTypes.string,
+	name: PropTypes.string,
 	direction: PropTypes.string
 };
 

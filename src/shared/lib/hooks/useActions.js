@@ -4,13 +4,20 @@ import { useDispatch } from 'react-redux';
 
 import * as aboutActions from '../../../redux/slices/aboutSlice';
 import * as contactActions from '../../../redux/slices/contactSlice';
-import * as projectsActions from '../../../redux/slices/projectsSlice';
+import * as dataActions from '../../../redux/slices/dataSlice';
+import * as portfolioActions from '../../../redux/slices/portfolioSlice';
 import * as sectionsActions from '../../../redux/slices/sectionsSlice';
 
-const rootActions = { ...aboutActions, ...contactActions, ...projectsActions, ...sectionsActions };
+const rootActions = {
+	...dataActions,
+	...sectionsActions,
+	...aboutActions,
+	...portfolioActions,
+	...contactActions
+};
 
 export const useActions = () => {
 	const dispatch = useDispatch();
 
-	return useMemo(() => bindActionCreators(rootActions, dispatch), []);
+	return useMemo(() => bindActionCreators(rootActions, dispatch), [dispatch]);
 };

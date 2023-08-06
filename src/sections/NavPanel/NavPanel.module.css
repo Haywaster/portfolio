@@ -3,6 +3,7 @@
 
 .desk {
 	display: flex;
+	font-size: 14pt;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
@@ -11,6 +12,7 @@
 	width: 100%;
 	background: navPanelBg;
 	border-bottom: 3px solid blue;
+	color: white;
 	z-index: 1;
 }
 
@@ -26,9 +28,7 @@
 }
 
 .link {
-	color: white;
 	display: inline;
-	font-size: 14pt;
 	margin: 0 20px;
 	padding: initial;
 	cursor: pointer;
@@ -47,6 +47,14 @@
 	animation: popDown 0.5s;
 }
 
+.button {
+	border: 0;
+	color: inherit;
+	background-color: inherit;
+	outline: none;
+	cursor: pointer;
+}
+
 @keyframes popDown {
 	0% {
 		transform: translateY(-100px);
@@ -54,13 +62,37 @@
 }
 
 @media screen and (max-width: 800px) {
+	.desk {
+		justify-content: space-between;
+	}
+
+	.button {
+		margin-right: 20px;
+	}
+
 	.linkWrap {
 		width: auto;
+		margin-left: 20px;
 		text-align: center;
 	}
 
 	.linkWrap > a {
 		margin: 0 10px;
 		font-size: inherit;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.desk {
+		font-size: inherit;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.linkWrap {
+		margin-left: 0px;
+	}
+	.button {
+		margin-right: 10px;
 	}
 }

@@ -5,13 +5,13 @@ import React, { useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import { useSelector } from 'react-redux';
 import { selectContactData } from '../../../../redux/slices/contactSlice';
-import { selectProjectsData } from '../../../../redux/slices/projectsSlice';
+import { selectPortfolioData } from '../../../../redux/slices/portfolioSlice';
 import { useActions } from '../../../../shared/lib/hooks/useActions';
 import { countScroll, scrollCount } from '../../../../shared/lib/utils/countScroll';
 import styles from '../../ModalWrap.module.css';
 
 const ModalWrap = ({ children }) => {
-	const { activeCardData } = useSelector(selectProjectsData);
+	const { activeCardData } = useSelector(selectPortfolioData);
 	const { statusMessage } = useSelector(selectContactData);
 	const { setActiveCardData, setStatusMessage } = useActions();
 

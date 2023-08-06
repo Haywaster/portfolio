@@ -102,3 +102,15 @@
 	left: -10px;
 	position: relative;
 }
+
+@media screen and (max-width: 800px) {
+	.welcomeLink {
+		margin-top: 30px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.welcomeLink {
+		font-size: 12pt;
+	}
+}

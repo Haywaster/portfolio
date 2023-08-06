@@ -8,7 +8,7 @@ import formStyles from '../../../sections/Contact/Contact.module.css';
 import portfolioStyles from '../../../sections/Portfolio/Portfolio.module.css';
 import btnStyles from '../Button.module.css';
 
-const Button = ({ children, action, category, btn, link, icon, type }) => {
+const Button = ({ children, action, category, btn, link, linkText, icon, type }) => {
 	let classNameBtn;
 
 	switch (category) {
@@ -26,7 +26,7 @@ const Button = ({ children, action, category, btn, link, icon, type }) => {
 		return (
 			<Link className={btnStyles[link]} to='about' smooth={true} offset={-53} duration={300}>
 				{icon && <FontAwesomeIcon className={btnStyles[icon.iconName]} icon={icon} />}
-				View my work
+				{linkText}
 			</Link>
 		);
 
@@ -49,6 +49,7 @@ Button.propTypes = {
 	children: PropTypes.string,
 	action: PropTypes.func,
 	link: PropTypes.string,
+	linkText: PropTypes.string,
 	icon: PropTypes.object,
 	category: PropTypes.string
 };

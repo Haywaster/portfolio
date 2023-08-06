@@ -11,6 +11,19 @@ section {
 	overflow: hidden;
 }
 
+.spinnerWrap {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 45px;
+}
+
+.spinnerWrap > div {
+	margin: 0;
+}
+
 @media screen and (max-width: 500px) {
 	body {
 		line-height: 11pt;

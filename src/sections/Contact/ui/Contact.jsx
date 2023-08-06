@@ -2,9 +2,13 @@ import React, { memo } from 'react';
 
 import Form from './Form';
 
+import { useSelector } from 'react-redux';
+import { selectContactData } from '../../../redux/slices/contactSlice';
 import styles from '../Contact.module.css';
 
 const Contact = () => {
+	const { question } = useSelector(selectContactData);
+
 	return (
 		<>
 			<div
@@ -13,7 +17,7 @@ const Contact = () => {
 				data-aos-delay='800'
 				className={styles.highlight}
 			>
-				Have a question or want to work together?
+				{question}
 			</div>
 			<Form />
 		</>

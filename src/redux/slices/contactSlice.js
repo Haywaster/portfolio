@@ -23,13 +23,19 @@ export const fetchContacts = createAsyncThunk('about/fetchContactsData', async (
 const initialState = {
 	statusMessage: 'idle', // idle || loading | success | error
 	socialMediaData: [],
-	statusLinks: 'loading'
+	form: null,
+	question: ''
 };
 
 export const contactSlice = createSlice({
 	name: 'contact',
 	initialState,
 	reducers: {
+		setContacts(state, action) {
+			state.socialMediaData = action.payload.socialMediaData;
+			state.form = action.payload.form;
+			state.question = action.payload.question;
+		},
 		setStatusMessage(state, action) {
 			state.statusMessage = action.payload;
 		}
@@ -44,24 +50,12 @@ export const contactSlice = createSlice({
 		[sendMessage.rejected]: (state, action) => {
 			state.statusMessage = 'error';
 			console.error(action.payload);
-		},
-
-		[fetchContacts.pending]: state => {
-			state.statusLinks = 'loading';
-		},
-		[fetchContacts.fulfilled]: (state, action) => {
-			state.statusLinks = 'success';
-			state.socialMediaData = action.payload;
-		},
-		[fetchContacts.rejected]: (state, action) => {
-			state.statusLinks = 'error';
-			console.error(action.payload);
 		}
 	}
 });
 
 export const selectContactData = state => state.contact;
 
-export const { setStatusMessage } = contactSlice.actions;
+export const { setStatusMessage, setContacts } = contactSlice.actions;
 
 export default contactSlice.reducer;

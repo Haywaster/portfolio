@@ -3,12 +3,18 @@ import React, { useRef } from 'react';
 
 import { Button } from '../../../components/Button';
 
+import { useSelector } from 'react-redux';
+import { selectContactData } from '../../../redux/slices/contactSlice';
 import { useActions } from '../../../shared/lib/hooks/useActions';
 import styles from '../Contact.module.css';
 
 const Form = () => {
-	const formRef = useRef(null);
+	const { form } = useSelector(selectContactData);
+	const { placeholders, submitBtn } = form;
+	const { name, email, area } = placeholders;
 	const { sendMessage } = useActions();
+
+	const formRef = useRef(null);
 
 	const sendEmail = e => {
 		e.preventDefault();
@@ -26,11 +32,11 @@ const Form = () => {
 			ref={formRef}
 			onSubmit={sendEmail}
 		>
-			<input placeholder='Name' type='text' name='name' required />
-			<input placeholder='Enter email' type='email' name='email' required />
-			<textarea placeholder='Your Message' type='text' name='message'></textarea>
+			<input placeholder={name} type='text' name='name' required />
+			<input placeholder={email} type='email' name='email' required />
+			<textarea placeholder={area} type='text' name='message'></textarea>
 			<Button btn='submit' category='form' type='submit'>
-				Submit
+				{submitBtn}
 			</Button>
 		</form>
 	);

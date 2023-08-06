@@ -3,16 +3,18 @@ import React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { selectProjectsData } from '../../../redux/slices/projectsSlice';
+import { selectPortfolioData } from '../../../redux/slices/portfolioSlice';
 import styles from '../Portfolio.module.css';
 import { switchFilterAnimation } from '../model/const';
 import Project from './Project';
 
 const Gallery = () => {
-	const { filteredProjects } = useSelector(selectProjectsData);
+	const { filteredProjects, openCartBtn, activeFilter } = useSelector(selectPortfolioData);
 
 	const renderProjects = () => {
-		return filteredProjects?.map(item => <Project key={item.name} {...item} />);
+		return filteredProjects.map(item => (
+			<Project key={item.name} openCartBtn={openCartBtn} {...item} />
+		));
 	};
 
 	const elements = renderProjects();
