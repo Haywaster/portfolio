@@ -1,35 +1,38 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useRef} from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { useSelector } from 'react-redux';
-import { selectPortfolioData } from '../../../redux/slices/portfolioSlice';
+import {motion} from 'framer-motion';
+import {useSelector} from 'react-redux';
+import {selectPortfolioData} from '../../../redux/slices/portfolioSlice';
 import styles from '../Portfolio.module.css';
-import { switchFilterAnimation } from '../model/const';
-import Project from './Project';
+import {MProject} from './Project';
+import {switchFilterAnimation} from '../model/const';
 
 const Gallery = () => {
-	const { filteredProjects, openCartBtn, activeFilter } = useSelector(selectPortfolioData);
-
-	const renderProjects = () => {
-		return filteredProjects.map(item => (
-			<Project key={item.name} openCartBtn={openCartBtn} {...item} />
-		));
-	};
-
-	const elements = renderProjects();
+	const {filteredProjects, openCartBtn} = useSelector(selectPortfolioData);
+	const firstAnimRef = useRef(false);
 
 	return (
 		<motion.div
-			initial='jumpStart'
-			whileInView='jump'
-			variants={switchFilterAnimation}
-			viewport={{ amount: 0.15, once: true }}
+			whileInView={!firstAnimRef.current ? 'jump' : ''}
+			initial={!firstAnimRef.current ? 'jumpStart' : 'start'}
+			animate={!firstAnimRef.current ? '' : 'middle'}
+			onViewportEnter={(e) => firstAnimRef.current = e.isIntersecting}
+			viewport={{amount: 0.15, once: true}}
 			className={styles.gallery}
 		>
-			<AnimatePresence initial={false} mode='popLayout'>
-				{elements}
-			</AnimatePresence>
+			{/*<AnimatePresence initial={!firstAnimRef.current} mode='popLayout' >*/}
+			{filteredProjects.map((item, index) => (
+				<MProject
+					layout
+					transition={{type: 'spring', stiffness: 150, damping: 20}}
+					key={item.name}
+					openCartBtn={openCartBtn}
+					custom={index + 1}
+					variants={switchFilterAnimation}
+					{...item} />
+			))}
+			{/*			</AnimatePresence>*/}
 		</motion.div>
 	);
 };

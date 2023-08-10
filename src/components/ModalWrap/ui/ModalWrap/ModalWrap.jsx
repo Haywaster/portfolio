@@ -26,6 +26,10 @@ const ModalWrap = ({ children }) => {
 		}
 	};
 
+	if (statusMessage === 'success') {
+		setTimeout(onClose, 3000);
+	}
+
 	useEffect(() => {
 		if (activeCardData || statusMessage !== 'idle') {
 			countScroll();

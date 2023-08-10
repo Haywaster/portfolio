@@ -13,7 +13,7 @@ const initialState = {
 	filteredProjects: [],
 	openCartBtn: '',
 	openCodeBtn: '',
-	activeCardData: null
+	activeCardData: null,
 };
 
 export const portfolioSlice = createSlice({

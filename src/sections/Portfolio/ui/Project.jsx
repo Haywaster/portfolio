@@ -1,27 +1,17 @@
-import { motion } from 'framer-motion';
+import React, {forwardRef, useCallback} from 'react';
+import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { forwardRef, memo, useCallback } from 'react';
-import { Button } from '../../../components/Button';
-import { useActions } from '../../../shared/lib/hooks/useActions';
+import {Button} from '../../../components/Button';
+import {useActions} from '../../../shared/lib/hooks/useActions';
 import styles from '../Portfolio.module.css';
-import { switchFilterAnimation } from '../model/const';
 
-const Project = forwardRef(({ name, preview, filter, openCartBtn }, ref) => {
-	const { setActiveCardData } = useActions();
+const Project = forwardRef(({name, preview, filter, openCartBtn}, ref) => {
+	const {setActiveCardData} = useActions();
 
 	const activeCardHandler = useCallback(() => setActiveCardData(name), []);
 
 	return (
-		<motion.div
-			ref={ref}
-			layout
-			variants={switchFilterAnimation}
-			transition={{ type: 'spring', stiffness: 150, damping: 20 }}
-			initial='start'
-			whileInView='jump'
-			animate='middle'
-			exit='finally'
-			className={styles.mix}
+		<div ref={ref} className={styles.mix}
 		>
 			<img
 				className={styles.card}
@@ -35,11 +25,13 @@ const Project = forwardRef(({ name, preview, filter, openCartBtn }, ref) => {
 			<Button category='portfolio' btn='mixBtn' action={activeCardHandler}>
 				{openCartBtn}
 			</Button>
-		</motion.div>
+		</div>
 	);
 });
 
 Project.displayName = 'Project';
+
+export const MProject = motion(Project);
 
 Project.propTypes = {
 	name: PropTypes.string,
@@ -48,5 +40,3 @@ Project.propTypes = {
 	openCartBtn: PropTypes.string,
 	setActiveModal: PropTypes.func
 };
-
-export default memo(Project);

@@ -116,7 +116,7 @@ p {
 }
 
 .bar:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .fill {
@@ -133,11 +133,10 @@ p {
 
 .tag {
 	display: flex;
-	width: fit-content;
+	width: 200px;
 	justify-content: center;
 	align-items: center;
 	font-weight: 600;
-	width: 200px;
 	background-color: blue;
 	color: white;
 	height: 100%;
@@ -178,7 +177,7 @@ p {
 
 @media screen and (max-width: 820px) {
 	.bar span {
-		padding-right: 0px;
+		padding-right: 0;
 	}
 }
 
